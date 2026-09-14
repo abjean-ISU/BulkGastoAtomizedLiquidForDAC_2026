@@ -1,0 +1,3573 @@
+
+
+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+ + +                                                                         + +
+ + +                      ASPEN PLUS CALCULATION REPORT                      + +
+ + +                                                                         + +
+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+
+ ASPEN PLUS IS A TRADEMARK OF           HOTLINE:
+ ASPEN TECHNOLOGY, INC.                 U.S.A. 888/996-7100
+ 781/221-6400                           EUROPE (44) 1189-226555
+
+ PLATFORM: WIN-X64                                       AUGUST 15, 2026     
+ VERSION: 40.0   Build 359                               SATURDAY    
+ INSTALLATION:                                           4:49:52 P.M.        
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE    I
+                                                                                
+
+
+
+      ASPEN PLUS (R) IS A PROPRIETARY PRODUCT OF ASPEN TECHNOLOGY, INC.
+      (ASPENTECH), AND MAY BE USED ONLY UNDER AGREEMENT WITH ASPENTECH.
+      RESTRICTED RIGHTS LEGEND:  USE, REPRODUCTION, OR DISCLOSURE BY THE
+      U.S. GOVERNMENT IS SUBJECT TO RESTRICTIONS SET FORTH IN 
+      (i) FAR 52.227-14, Alt. III, (ii) FAR 52.227-19, (iii) DFARS 
+      252.227-7013(c)(1)(ii), or (iv) THE ACCOMPANYING LICENSE AGREEMENT,
+      AS APPLICABLE. FOR PURPOSES OF THE FAR, THIS SOFTWARE SHALL BE DEEMED
+      TO BE "UNPUBLISHED" AND LICENSED WITH DISCLOSURE PROHIBITIONS.
+      CONTRACTOR/SUBCONTRACTOR: ASPEN TECHNOLOGY, INC. 20 CROSBY DRIVE,
+      BEDFORD, MA 01730.
+                               TABLE OF CONTENTS                                
+
+
+            RUN CONTROL SECTION....................................  1
+                 RUN CONTROL INFORMATION...........................  1
+
+            FLOWSHEET SECTION......................................  2
+                 FLOWSHEET CONNECTIVITY BY STREAMS.................  2
+                 FLOWSHEET CONNECTIVITY BY BLOCKS..................  2
+                 CONVERGENCE STATUS SUMMARY........................  3
+                 CALCULATOR BLOCK:   C-1...........................  3
+                 CONVERGENCE BLOCK:  $OLVER01......................  4
+                 COMPUTATIONAL SEQUENCE............................  5
+                 OVERALL FLOWSHEET BALANCE.........................  5
+
+            ADA/PCS SECTION........................................  6
+                 PSEUDOCOMPONENT PHYSICAL PROPERTIES...............  6
+
+            PHYSICAL PROPERTIES SECTION............................  7
+                 COMPONENTS........................................  7
+
+            U-O-S BLOCK SECTION....................................  8
+                 BLOCK:  ABSORB   MODEL: USER2.....................  8
+                 BLOCK:  B1       MODEL: VALVE.....................  9
+                 BLOCK:  B4       MODEL: VALVE..................... 10
+                 BLOCK:  B5       MODEL: VALVE..................... 10
+                 BLOCK:  B6       MODEL: VALVE..................... 11
+                 BLOCK:  B7       MODEL: VALVE..................... 12
+                 BLOCK:  B8       MODEL: VALVE..................... 13
+                 BLOCK:  COMP-1   MODEL: COMPR..................... 13
+                 BLOCK:  COMP-10  MODEL: COMPR..................... 15
+                 BLOCK:  COMP-11  MODEL: COMPR..................... 16
+                 BLOCK:  COMP-2   MODEL: COMPR..................... 17
+                 BLOCK:  COMP-3   MODEL: COMPR..................... 19
+                 BLOCK:  COMP-5   MODEL: COMPR..................... 20
+                 BLOCK:  COMP-6   MODEL: COMPR..................... 22
+                 BLOCK:  COMP-7   MODEL: COMPR..................... 23
+                 BLOCK:  COMP-8   MODEL: COMPR..................... 24
+                 BLOCK:  COMP-9   MODEL: COMPR..................... 26
+                 BLOCK:  DESORB   MODEL: USER2..................... 27
+                 BLOCK:  FLASH-2  MODEL: FLASH2.................... 28
+                 BLOCK:  FLASH-3  MODEL: FLASH2.................... 29
+                 BLOCK:  FLASH-4  MODEL: FLASH2.................... 30
+                 BLOCK:  FLASH-5  MODEL: FLASH2.................... 31
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE   II
+                                                                                
+                               TABLE OF CONTENTS                                
+
+                 BLOCK:  FLASH-6  MODEL: FLASH2.................... 32
+                 BLOCK:  FLASH-7  MODEL: FLASH2.................... 33
+                 BLOCK:  HX-1     MODEL: HEATER.................... 34
+                 BLOCK:  HX-10    MODEL: HEATER.................... 35
+                 BLOCK:  HX-11    MODEL: HEATER.................... 36
+                 BLOCK:  HX-12    MODEL: HEATER.................... 37
+                 BLOCK:  HX-13    MODEL: HEATER.................... 38
+                 BLOCK:  HX-14    MODEL: HEATER.................... 39
+                 BLOCK:  HX-15    MODEL: HEATER.................... 40
+                 BLOCK:  HX-2     MODEL: HEATER.................... 41
+                 BLOCK:  HX-3     MODEL: HEATER.................... 42
+                 BLOCK:  HX-5     MODEL: HEATER.................... 43
+                 BLOCK:  HX-8     MODEL: HEATER.................... 44
+                 BLOCK:  HX-9     MODEL: HEATER.................... 45
+                 BLOCK:  M-1      MODEL: MIXER..................... 45
+                 BLOCK:  M-2      MODEL: MIXER..................... 46
+                 BLOCK:  P-1      MODEL: PUMP...................... 47
+                 BLOCK:  P-2      MODEL: PUMP...................... 48
+                 BLOCK:  P-3      MODEL: PUMP...................... 49
+                 BLOCK:  P-4      MODEL: PUMP...................... 50
+                 BLOCK:  P-PROD   MODEL: PUMP...................... 51
+                 BLOCK:  S-1      MODEL: FSPLIT.................... 52
+                 BLOCK:  V-1      MODEL: VALVE..................... 52
+                 BLOCK:  V-2      MODEL: VALVE..................... 53
+
+            STREAM SECTION......................................... 55
+                 CO2PROD DESORBED FEEDAIR FEEDSORB LEANAIR......... 55
+                 LEANSORB MAKEUP RECYCLE RICHAIR RICHSORB.......... 56
+                 S1 S16 S17 S18 S19................................ 57
+                 S2 S20 S21 S22 S23................................ 58
+                 S24 S25 S26 S27 S28............................... 59
+                 S29 S3 S30 S31 S32................................ 60
+                 S33 S34 S35 S36 S37............................... 61
+                 S38 S39 S4 S40 S41................................ 62
+                 S42 S43 S44 S45 S46............................... 63
+                 S5 S8 SORBLOSS STRIP TOPURE....................... 64
+                 TOVAC TREATAIR VENT-2 VENT-3 VENT-4............... 65
+                 VENT-5 VENT-6..................................... 66
+
+            UTILITY SECTION........................................ 67
+                 UTILITY USAGE:  AIR       (GENERAL)............... 67
+                 UTILITY USAGE:  COOLH2O   (WATER)................. 68
+                 UTILITY USAGE:  ELEC      (ELECTRICITY)........... 69
+                 UTILITY USAGE:  R1150     (REFRIGERANT)........... 71
+                 UTILITY USAGE:  R134A     (REFRIGERANT)........... 72
+                 UTILITY USAGE:  R23       (REFRIGERANT)........... 73
+                 UTILITY USAGE:  R290      (REFRIGERANT)........... 74
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE  III
+                                                                                
+                               TABLE OF CONTENTS                                
+
+
+            PROBLEM STATUS SECTION................................. 75
+                 BLOCK STATUS...................................... 75
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 1       
+                                                                                
+                              RUN CONTROL SECTION                               
+
+ RUN CONTROL INFORMATION                 
+ -----------------------
+
+ THIS COPY OF ASPEN PLUS LICENSED TO IOWA STATE UNIVERSITY           
+
+ TYPE OF RUN: NEW 
+
+ INPUT FILE NAME: _0604lor.inm
+
+ OUTPUT PROBLEM DATA FILE NAME: _0604lor 
+ LOCATED IN:                    
+
+
+ PDF SIZE USED FOR INPUT TRANSLATION:
+   NUMBER OF FILE RECORDS (PSIZE) =     0
+   NUMBER OF IN-CORE RECORDS      =   256
+ PSIZE NEEDED FOR SIMULATION    =   256
+
+ CALLING PROGRAM NAME:          apmain  
+ LOCATED IN: C:\Program Files\AspenTech\Aspen Plus V14.0\Engine\\xeq
+
+ SIMULATION REQUESTED FOR ENTIRE FLOWSHEET
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 2       
+                                                                                
+                               FLOWSHEET SECTION                                
+
+ FLOWSHEET CONNECTIVITY BY STREAMS       
+ ---------------------------------
+
+   STREAM     SOURCE     DEST           STREAM     SOURCE     DEST
+   FEEDAIR    ----       COMP-1         MAKEUP     ----       M-1     
+   S1         COMP-1     HX-1           S2         HX-1       COMP-2  
+   S3         COMP-2     HX-2           S4         HX-2       COMP-3  
+   S5         COMP-3     HX-3           RICHAIR    HX-3       ABSORB  
+   RICHSORB   ABSORB     B4             LEANAIR    ABSORB     B1      
+   S17        FLASH-2    B5             S18        FLASH-2    B6      
+   S20        FLASH-3    B7             S21        FLASH-3    B8      
+   S24        V-1        FLASH-5        S25        FLASH-5    COMP-5  
+   TOVAC      FLASH-5    DESORB         DESORBED   DESORB     COMP-6  
+   STRIP      DESORB     S-1            S28        COMP-6     HX-8    
+   S29        HX-8       COMP-7         S30        COMP-7     HX-9    
+   S31        HX-9       COMP-8         S32        COMP-8     HX-10   
+   S33        HX-10      COMP-9         S34        COMP-9     HX-11   
+   TOPURE     HX-11      COMP-10        S35        COMP-10    HX-12   
+   S36        HX-12      FLASH-6        S40        FLASH-6    COMP-11 
+   S37        FLASH-6    P-4            S42        HX-14      FLASH-7 
+   S45        FLASH-7    HX-15          S43        FLASH-7    M-2     
+   S41        COMP-11    HX-14          CO2PROD    P-PROD     ----    
+   LEANSORB   P-1        ABSORB         RECYCLE    P-2        M-1     
+   FEEDSORB   M-1        HX-5           S8         HX-5       P-1     
+   VENT-4     FLASH-4    ----           S23        FLASH-4    V-1     
+   S26        S-1        P-3            S27        S-1        P-2     
+   SORBLOSS   P-3        ----           VENT-5     COMP-5     ----    
+   S38        P-4        HX-13          S39        HX-13      M-2     
+   S44        M-2        P-PROD         S46        HX-15      V-2     
+   VENT-6     V-2        ----           TREATAIR   B1         ----    
+   S16        B4         FLASH-2        VENT-2     B5         ----    
+   S19        B6         FLASH-3        VENT-3     B7         ----    
+   S22        B8         FLASH-4                                      
+
+ FLOWSHEET CONNECTIVITY BY BLOCKS        
+ --------------------------------
+
+   BLOCK        INLETS                         OUTLETS
+   COMP-1       FEEDAIR                        S1                          
+   HX-1         S1                             S2                          
+   COMP-2       S2                             S3                          
+   HX-2         S3                             S4                          
+   COMP-3       S4                             S5                          
+   HX-3         S5                             RICHAIR                     
+   ABSORB       RICHAIR LEANSORB               RICHSORB LEANAIR            
+   FLASH-2      S16                            S17 S18                     
+   FLASH-3      S19                            S20 S21                     
+   V-1          S23                            S24                         
+   FLASH-5      S24                            S25 TOVAC                   
+   DESORB       TOVAC                          DESORBED STRIP              
+   COMP-6       DESORBED                       S28                         
+   HX-8         S28                            S29                         
+   COMP-7       S29                            S30                         
+   HX-9         S30                            S31                         
+   COMP-8       S31                            S32                         
+   HX-10        S32                            S33                         
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 3       
+                                                                                
+                               FLOWSHEET SECTION                                
+
+ FLOWSHEET CONNECTIVITY BY BLOCKS (CONTINUED)        
+   COMP-9       S33                            S34                         
+   HX-11        S34                            TOPURE                      
+   COMP-10      TOPURE                         S35                         
+   HX-12        S35                            S36                         
+   FLASH-6      S36                            S40 S37                     
+   HX-14        S41                            S42                         
+   FLASH-7      S42                            S45 S43                     
+   COMP-11      S40                            S41                         
+   P-PROD       S44                            CO2PROD                     
+   P-1          S8                             LEANSORB                    
+   P-2          S27                            RECYCLE                     
+   M-1          RECYCLE MAKEUP                 FEEDSORB                    
+   HX-5         FEEDSORB                       S8                          
+   FLASH-4      S22                            VENT-4 S23                  
+   S-1          STRIP                          S26 S27                     
+   P-3          S26                            SORBLOSS                    
+   COMP-5       S25                            VENT-5                      
+   P-4          S37                            S38                         
+   HX-13        S38                            S39                         
+   M-2          S39 S43                        S44                         
+   HX-15        S45                            S46                         
+   V-2          S46                            VENT-6                      
+   B1           LEANAIR                        TREATAIR                    
+   B4           RICHSORB                       S16                         
+   B5           S17                            VENT-2                      
+   B6           S18                            S19                         
+   B7           S20                            VENT-3                      
+   B8           S21                            S22                         
+
+ CONVERGENCE STATUS SUMMARY              
+ --------------------------
+
+   TEAR STREAM SUMMARY
+   ===================
+
+
+   STREAM    VARIABLE         MAXIMUM      MAX. ERR.    ABSOLUTE          CONV
+   ID        ID               ERR/TOL      RELATIVE     ERROR       STAT  BLOCK
+   ------    --------         --------     -------      ---------   ----  -----
+   LEANSORB O2 MOLEFLOW       0.53259E-01  0.53259E-05  0.13447E-10  #    $OLVER01                                                                                 
+
+   #  = CONVERGED
+   *  = NOT CONVERGED
+
+ CALCULATOR BLOCK:   C-1                 
+ -----------------------
+
+   SAMPLED VARIABLES:
+     FMAKEUP  : SORBENT MASSFLOW IN STREAM MAKEUP SUBSTREAM MIXED   
+     FRECYCLE : SORBENT MASSFLOW IN STREAM S27 SUBSTREAM MIXED  
+
+   FORTRAN STATEMENTS:
+         FMAKEUP = 611.39 - FRECYCLE   
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 4       
+                                                                                
+                               FLOWSHEET SECTION                                
+
+ CALCULATOR BLOCK:   C-1 (CONTINUED)                 
+
+   READ VARIABLES:  FRECYCLE
+
+   WRITE VARIABLES: FMAKEUP 
+
+   VALUES OF ACCESSED FORTRAN VARIABLES ON MOST RECENT SIMULATION PASS:
+     VARIABLE        VALUE READ      VALUE WRITTEN    UNITS
+     --------        ----------      -------------    -----
+     FMAKEUP          3.05695          3.05695        KG/SEC          
+     FRECYCLE         608.333                         KG/SEC          
+
+ CONVERGENCE BLOCK:  $OLVER01            
+ ----------------------------
+     Tear Stream  :  LEANSORB
+     Tolerance used:  0.100D-03 
+     Trace molefrac:  0.100D-05 
+ 
+     MAXIT=   30 WAIT   1 ITERATIONS BEFORE ACCELERATING
+     QMAX =   0.0     QMIN =  -5.0    
+     METHOD: WEGSTEIN      STATUS: CONVERGED       
+     TOTAL NUMBER OF ITERATIONS:    35
+     NUMBER OF ITERATIONS ON LAST OUTER LOOP:     3
+
+                          *** FINAL VALUES ***
+
+     
+     VAR#  TEAR STREAM VAR   STREAM    SUBSTREA COMPONEN UNIT         VALUE        PREV VALUE   ERR/TOL
+     ----  ----------------  ------    -------- -------- ----         -----        ----------   -------
+        1  TOTAL MOLEFLOW    LEANSORB  MIXED             KMOL/HR       1.0723+04    1.0723+04    5.0318-08   
+        2  MOLE-FLOW         LEANSORB  MIXED    N2       KMOL/HR       5.0063-03    5.0063-03    3.3755-03   
+        3  MOLE-FLOW         LEANSORB  MIXED    O2       KMOL/HR       9.0895-03    9.0895-03    5.3259-02   
+        4  MOLE-FLOW         LEANSORB  MIXED    CO2      KMOL/HR       5.9938-02    5.9938-02    6.4349-04   
+        5  MOLE-FLOW         LEANSORB  MIXED    H2O      KMOL/HR          0.0          0.0          0.0      
+        6  MOLE-FLOW         LEANSORB  MIXED    SORBENT  KMOL/HR       1.0723+04    1.0723+04       0.0      
+        7  MOLE-FLOW         LEANSORB  MIXED    R23      KMOL/HR          0.0          0.0          0.0      
+        8  MOLE-FLOW         LEANSORB  MIXED    R1150    KMOL/HR          0.0          0.0          0.0      
+        9  MOLE-FLOW         LEANSORB  MIXED    R134A    KMOL/HR          0.0          0.0          0.0      
+       10  MOLE-FLOW         LEANSORB  MIXED    R290     KMOL/HR          0.0          0.0          0.0      
+       11  PRESSURE          LEANSORB  MIXED             BAR             11.8044      11.8044       0.0      
+       12  MASS ENTHALPY     LEANSORB  MIXED             CAL/GM         279.6910     279.6910    2.5526-06   
+
+                          *** ITERATION HISTORY *** 
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 5       
+                                                                                
+                               FLOWSHEET SECTION                                
+
+ CONVERGENCE BLOCK:  $OLVER01 (CONTINUED)            
+
+     TEAR STREAMS AND TEAR VARIABLES: 
+
+     ITERATION MAX-ERR/TOL  VAR# STREAM ID VAR DESCRIPTION  SUBSTREA COMPONEN ATTRIBUT ELEMENT
+     --------- -----------  ---- --------- ---------------  -------- -------- -------- -------
+          1       321.4        4 LEANSORB  MOLE-FLO         MIXED    CO2                       
+          2       10.79        4 LEANSORB  MOLE-FLO         MIXED    CO2                       
+          3      0.5326E-01    3 LEANSORB  MOLE-FLO         MIXED    O2                        
+
+ COMPUTATIONAL SEQUENCE                  
+ ----------------------
+
+ SEQUENCE USED WAS:
+    AIR R23 R134A COOLH2O ELEC COMP-1 HX-1 COMP-2 HX-2 COMP-3 HX-3         
+    $OLVER01 ABSORB B4 FLASH-2 B6 FLASH-3 B8 FLASH-4 V-1 FLASH-5 DESORB S-1
+    |  P-2 C-1 M-1 *HX-5 P-1                                               
+    (RETURN $OLVER01)                                                      
+    *B5 B7 COMP-5 COMP-6 HX-8 COMP-7 HX-9 COMP-8 HX-10 COMP-9 HX-11 COMP-10
+    HX-12 FLASH-6 COMP-11 HX-14 FLASH-7 HX-15 V-2 P-4 *HX-13 M-2 P-PROD P-3
+    B1 R290 R1150                                                          
+
+ OVERALL FLOWSHEET BALANCE               
+ -------------------------
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    CONVENTIONAL COMPONENTS (KMOL/HR )
+       N2                        4580.52         4580.52        0.368919E-12
+       O2                        1218.22         1218.22        0.397380E-10
+       CO2                       2.32042         2.32042        0.166217E-08
+       H2O                       0.00000         0.00000         0.00000    
+       SORBENT                   53.6150         53.6150       -0.115298E-13
+       R23                       0.00000         0.00000         0.00000    
+       R1150                     0.00000         0.00000         0.00000    
+       R134A                     0.00000         0.00000         0.00000    
+       R290                      0.00000         0.00000         0.00000    
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            5854.67         5854.67        0.921584E-11
+       MASS(KG/HR   )            178405.         178405.        0.989878E-11
+       ENTHALPY(CAL/SEC )        849586.         800180.        0.581533E-01
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             102.121      KG/HR           
+    PRODUCT STREAMS CO2E          102.121      KG/HR           
+    NET STREAMS CO2E PRODUCTION -0.169743E-06  KG/HR           
+    UTILITIES CO2E PRODUCTION     4910.51      KG/HR           
+    TOTAL CO2E PRODUCTION         4910.51      KG/HR           
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 6       
+                                                                                
+                                ADA/PCS SECTION                                 
+
+ PSEUDOCOMPONENT PHYSICAL PROPERTIES     
+ -----------------------------------
+
+                          PSEUDOCOMPONENT PROPERTY SUMMARY
+ COMPONENT    NBP         API         SG       MW        TC         PC      
+              C                                          C          BAR     
+ SORBENT      509.8500     1.3638     1.0650   205.2600   710.7060    13.0130
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 7       
+                                                                                
+                          PHYSICAL PROPERTIES SECTION                           
+
+ COMPONENTS                              
+ ----------
+
+  ID       TYPE  ALIAS          NAME
+   N2       C     N2             NITROGEN                        
+   O2       C     O2             OXYGEN                          
+   CO2      C     CO2            CARBON-DIOXIDE                  
+   H2O      C     H2O            WATER                           
+   SORBENT  C     IL             C10H15N5                        
+   R23      C     CHF3           TRIFLUOROMETHANE                
+   R1150    C     C2H4           ETHYLENE                        
+   R134A    C     C2H2F4         1,1,1,2-TETRAFLUOROETHANE       
+   R290     C     C3H8           PROPANE                         
+
+  LISTID         SUPERCRITICAL COMPONENT LIST
+   HC-1           N2 O2 CO2   
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 8       
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  ABSORB   MODEL: USER2           
+ -----------------------------
+   INLET STREAMS:         RICHAIR    LEANSORB
+   OUTLET STREAMS:        RICHSORB   LEANAIR 
+   FIRST PROPERTY SPECS
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+   SECOND PROPERTY SPECS
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            16524.1         16524.1        0.326544E-11
+       MASS(KG/HR   )           0.236841E+07    0.236841E+07    0.745559E-12
+       ENTHALPY(CAL/SEC )       0.170940E+09    0.170758E+09    0.106491E-02
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             104.759      KG/HR           
+    PRODUCT STREAMS CO2E          104.759      KG/HR           
+    NET STREAMS CO2E PRODUCTION -0.169745E-06  KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION       -0.169745E-06  KG/HR           
+
+
+                          ***  INPUT DATA  ***
+
+   FLASH SPECS FOR STREAM RICHSORB
+   ONE    PHASE  TP  FLASH   SPECIFIED PHASE IS  LIQUID 
+   SPECIFIED TEMPERATURE C                                  25.0000     
+   SPECIFIED PRESSURE    BAR                                10.1325     
+   MAXIMUM NO. ITERATIONS                                   30
+   CONVERGENCE TOLERANCE                                     0.000100000
+
+   FLASH SPECS FOR STREAM LEANAIR 
+   ONE    PHASE  TP  FLASH   SPECIFIED PHASE IS  VAPOR  
+   SPECIFIED TEMPERATURE C                                  25.0000     
+   SPECIFIED PRESSURE    BAR                                10.1325     
+   MAXIMUM NO. ITERATIONS                                   30
+   CONVERGENCE TOLERANCE                                     0.000100000
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 9       
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  ABSORB   MODEL: USER2 (CONTINUED)           
+
+                          ***    ARRAYS    ***
+     INTEGER VECTOR AS FOLLOWS   1 VALUES
+
+                   1
+     REAL VECTOR AS FOLLOWS    6 VALUES
+
+          0.0000      10.000      50.500      1.0000     0.30000    
+          0.0000    
+     CHARACTER STRING VECTOR AS FOLLOWS     6   VALUES
+        NCOL    PRESSURE (ATM)    CO2 ABSORPTION EFF (%)    O2 ABSORPTION EFF (%)       
+        N2 ABSORPTION EFF (%)    SORBENT VAPOR PRESSURE (ATM)                           
+
+ BLOCK:  B1       MODEL: VALVE           
+ -----------------------------
+   INLET STREAM:          LEANAIR 
+   OUTLET STREAM:         TREATAIR
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            5773.96         5773.96         0.00000    
+       MASS(KG/HR   )            166574.         166574.         0.00000    
+       ENTHALPY(CAL/SEC )       -29987.7        -29987.7         0.00000    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             50.5501      KG/HR           
+    PRODUCT STREAMS CO2E          50.5501      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+
+    VALVE OUTLET PRESSURE     BAR                           1.01325    
+    VALVE FLOW COEF CALC.                                 NO  
+
+                          FLASH SPECIFICATIONS:
+    PHASE                                                 VAPOR   
+    MAX NUMBER OF ITERATIONS                               30
+    CONVERGENCE TOLERANCE                                   0.000100000
+
+                          ***  RESULTS  ***
+
+    VALVE PRESSURE DROP       BAR                           9.11925    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 10      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B4       MODEL: VALVE           
+ -----------------------------
+   INLET STREAM:          RICHSORB
+   OUTLET STREAM:         S16     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10750.2         10750.2         0.00000    
+       MASS(KG/HR   )           0.220183E+07    0.220183E+07     0.00000    
+       ENTHALPY(CAL/SEC )       0.170788E+09    0.170788E+09     0.00000    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             54.2092      KG/HR           
+    PRODUCT STREAMS CO2E          54.2092      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+
+    VALVE OUTLET PRESSURE     BAR                           6.07950    
+    VALVE FLOW COEF CALC.                                 NO  
+
+                          FLASH SPECIFICATIONS:
+    NPHASE                                                  2
+    MAX NUMBER OF ITERATIONS                               30
+    CONVERGENCE TOLERANCE                                   0.000100000
+
+                          ***  RESULTS  ***
+
+    VALVE PRESSURE DROP       BAR                           4.05300    
+
+ BLOCK:  B5       MODEL: VALVE           
+ -----------------------------
+   INLET STREAM:          S17     
+   OUTLET STREAM:         VENT-2  
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 11      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B5       MODEL: VALVE (CONTINUED)           
+
+
+     ***********************************************************************
+     *                                                                     *
+     *     ZERO FEED TO BLOCK                                              *   
+     *                                                                     *
+     ***********************************************************************
+
+
+                          ***  INPUT DATA  ***
+
+    VALVE OUTLET PRESSURE     BAR                           1.01325    
+    VALVE FLOW COEF CALC.                                 NO  
+
+                          FLASH SPECIFICATIONS:
+    NPHASE                                                  2
+    MAX NUMBER OF ITERATIONS                               30
+    CONVERGENCE TOLERANCE                                   0.000100000
+
+ BLOCK:  B6       MODEL: VALVE           
+ -----------------------------
+   INLET STREAM:          S18     
+   OUTLET STREAM:         S19     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10750.2         10750.2         0.00000    
+       MASS(KG/HR   )           0.220183E+07    0.220183E+07   -0.211488E-15
+       ENTHALPY(CAL/SEC )       0.170788E+09    0.170788E+09     0.00000    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             54.2092      KG/HR           
+    PRODUCT STREAMS CO2E          54.2092      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+
+    VALVE OUTLET PRESSURE     BAR                           3.03975    
+    VALVE FLOW COEF CALC.                                 NO  
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 12      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B6       MODEL: VALVE (CONTINUED)           
+
+                          FLASH SPECIFICATIONS:
+    NPHASE                                                  2
+    MAX NUMBER OF ITERATIONS                               30
+    CONVERGENCE TOLERANCE                                   0.000100000
+
+                          ***  RESULTS  ***
+
+    VALVE PRESSURE DROP       BAR                           3.03975    
+
+ BLOCK:  B7       MODEL: VALVE           
+ -----------------------------
+   INLET STREAM:          S20     
+   OUTLET STREAM:         VENT-3  
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            12.2284         12.2284         0.00000    
+       MASS(KG/HR   )            363.441         363.441        0.156403E-15
+       ENTHALPY(CAL/SEC )       -317.255        -317.255       -0.179173E-15
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E            0.535812      KG/HR           
+    PRODUCT STREAMS CO2E         0.535812      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+
+    VALVE OUTLET PRESSURE     BAR                           1.01325    
+    VALVE FLOW COEF CALC.                                 NO  
+
+                          FLASH SPECIFICATIONS:
+    NPHASE                                                  2
+    MAX NUMBER OF ITERATIONS                               30
+    CONVERGENCE TOLERANCE                                   0.000100000
+
+                          ***  RESULTS  ***
+
+    VALVE PRESSURE DROP       BAR                           2.02650    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 13      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  B8       MODEL: VALVE           
+ -----------------------------
+   INLET STREAM:          S21     
+   OUTLET STREAM:         S22     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10737.9         10737.9         0.00000    
+       MASS(KG/HR   )           0.220147E+07    0.220147E+07     0.00000    
+       ENTHALPY(CAL/SEC )       0.170788E+09    0.170788E+09     0.00000    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             53.6734      KG/HR           
+    PRODUCT STREAMS CO2E          53.6734      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+
+    VALVE OUTLET PRESSURE     BAR                           1.01325    
+    VALVE FLOW COEF CALC.                                 NO  
+
+                          FLASH SPECIFICATIONS:
+    NPHASE                                                  2
+    MAX NUMBER OF ITERATIONS                               30
+    CONVERGENCE TOLERANCE                                   0.000100000
+
+                          ***  RESULTS  ***
+
+    VALVE PRESSURE DROP       BAR                           2.02650    
+
+ BLOCK:  COMP-1   MODEL: COMPR           
+ -----------------------------
+   INLET STREAM:          FEEDAIR 
+   OUTLET STREAM:         S1      
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 14      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-1   MODEL: COMPR (CONTINUED)           
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            5801.06         5801.06         0.00000    
+       MASS(KG/HR   )            167400.         167400.         0.00000    
+       ENTHALPY(CAL/SEC )       -4429.19        0.166340E+07    -1.00266    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             102.121      KG/HR           
+    PRODUCT STREAMS CO2E          102.121      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     2294.38      KG/HR           
+    TOTAL CO2E PRODUCTION         2294.38      KG/HR           
+
+                           ***  INPUT DATA  ***
+
+   ISENTROPIC CENTRIFUGAL COMPRESSOR
+    OUTLET PRESSURE  BAR                                     3.03975    
+    ISENTROPIC EFFICIENCY                                    0.75000    
+    MECHANICAL EFFICIENCY                                    0.95000    
+
+                           ***  RESULTS  ***
+
+    INDICATED  HORSEPOWER REQUIREMENT  KW                6,982.86       
+    BRAKE      HORSEPOWER REQUIREMENT  KW                7,350.38       
+    NET WORK REQUIRED                  KW                7,350.38       
+    POWER LOSSES                       KW                  367.519      
+    ISENTROPIC HORSEPOWER REQUIREMENT  KW                5,237.15       
+    CALCULATED OUTLET TEMP  C                              177.531      
+    ISENTROPIC TEMPERATURE  C                              140.884      
+    EFFICIENCY (POLYTR/ISENTR) USED                          0.75000    
+    OUTLET VAPOR FRACTION                                    1.00000    
+    HEAD DEVELOPED,       M-KGF/KG                      11,484.7        
+    MECHANICAL EFFICIENCY USED                               0.95000    
+    INLET HEAT CAPACITY RATIO                                1.39897    
+    INLET VOLUMETRIC FLOW RATE , L/MIN               2,405,050.         
+    OUTLET VOLUMETRIC FLOW RATE, L/MIN               1,191,830.         
+    INLET  COMPRESSIBILITY FACTOR                            1.00000    
+    OUTLET COMPRESSIBILITY FACTOR                            1.00000    
+    AV. ISENT. VOL. EXPONENT                                 1.39614    
+    AV. ISENT. TEMP EXPONENT                                 1.39614    
+    AV. ACTUAL VOL. EXPONENT                                 1.56479    
+    AV. ACTUAL TEMP EXPONENT                                 1.56479    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 15      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-1   MODEL: COMPR (CONTINUED)           
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                    7350.3808  KW              
+  COST                                    249.9129  $/HR            
+  CO2 EQUIVALENT EMISSIONS               2294.3833  KG/HR           
+
+ BLOCK:  COMP-10  MODEL: COMPR           
+ -----------------------------
+   INLET STREAM:          TOPURE  
+   OUTLET STREAM:         S35     
+   PROPERTY OPTION SET:   PSRK      RKS-MHV1 EQUATION OF STATE                  
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            1.12570         1.12570         0.00000    
+       MASS(KG/HR   )            46.6640         46.6640         0.00000    
+       ENTHALPY(CAL/SEC )       -23793.8        -23437.0       -0.149979E-01
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             40.1091      KG/HR           
+    PRODUCT STREAMS CO2E          40.1091      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION    0.490919      KG/HR           
+    TOTAL CO2E PRODUCTION        0.490919      KG/HR           
+
+                           ***  INPUT DATA  ***
+
+   ISENTROPIC CENTRIFUGAL COMPRESSOR
+    OUTLET PRESSURE  BAR                                    35.4637     
+    ISENTROPIC EFFICIENCY                                    0.75000    
+    MECHANICAL EFFICIENCY                                    0.95000    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 16      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-10  MODEL: COMPR (CONTINUED)           
+
+                           ***  RESULTS  ***
+
+    INDICATED  HORSEPOWER REQUIREMENT  KW                    1.49409    
+    BRAKE      HORSEPOWER REQUIREMENT  KW                    1.57273    
+    NET WORK REQUIRED                  KW                    1.57273    
+    POWER LOSSES                       KW                    0.078636   
+    ISENTROPIC HORSEPOWER REQUIREMENT  KW                    1.12057    
+    CALCULATED OUTLET TEMP  C                              163.630      
+    ISENTROPIC TEMPERATURE  C                              136.134      
+    EFFICIENCY (POLYTR/ISENTR) USED                          0.75000    
+    OUTLET VAPOR FRACTION                                    1.00000    
+    HEAD DEVELOPED,       M-KGF/KG                       8,815.33       
+    MECHANICAL EFFICIENCY USED                               0.95000    
+    INLET HEAT CAPACITY RATIO                                1.35457    
+    INLET VOLUMETRIC FLOW RATE , L/MIN                      45.6522     
+    OUTLET VOLUMETRIC FLOW RATE, L/MIN                      18.7938     
+    INLET  COMPRESSIBILITY FACTOR                            0.96595    
+    OUTLET COMPRESSIBILITY FACTOR                            0.97822    
+    AV. ISENT. VOL. EXPONENT                                 1.30035    
+    AV. ISENT. TEMP EXPONENT                                 1.29797    
+    AV. ACTUAL VOL. EXPONENT                                 1.41152    
+    AV. ACTUAL TEMP EXPONENT                                 1.39173    
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                       1.5727  KW              
+  COST                                   5.3473-02  $/HR            
+  CO2 EQUIVALENT EMISSIONS                  0.4909  KG/HR           
+
+ BLOCK:  COMP-11  MODEL: COMPR           
+ -----------------------------
+   INLET STREAM:          S40     
+   OUTLET STREAM:         S41     
+   PROPERTY OPTION SET:   PSRK      RKS-MHV1 EQUATION OF STATE                  
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )           0.729004        0.729004         0.00000    
+       MASS(KG/HR   )            29.3190         29.3190         0.00000    
+       ENTHALPY(CAL/SEC )       -13802.4        -13738.8       -0.460858E-02
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             23.0296      KG/HR           
+    PRODUCT STREAMS CO2E          23.0296      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION    0.875056E-01  KG/HR           
+    TOTAL CO2E PRODUCTION        0.875056E-01  KG/HR           
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 17      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-11  MODEL: COMPR (CONTINUED)           
+
+                           ***  INPUT DATA  ***
+
+   ISENTROPIC CENTRIFUGAL COMPRESSOR
+    OUTLET PRESSURE  BAR                                    60.7950     
+    ISENTROPIC EFFICIENCY                                    0.75000    
+    MECHANICAL EFFICIENCY                                    0.95000    
+
+                           ***  RESULTS  ***
+
+    INDICATED  HORSEPOWER REQUIREMENT  KW                    0.26632    
+    BRAKE      HORSEPOWER REQUIREMENT  KW                    0.28034    
+    NET WORK REQUIRED                  KW                    0.28034    
+    POWER LOSSES                       KW                    0.014017   
+    ISENTROPIC HORSEPOWER REQUIREMENT  KW                    0.19974    
+    CALCULATED OUTLET TEMP  C                               33.0335     
+    ISENTROPIC TEMPERATURE  C                               26.4250     
+    EFFICIENCY (POLYTR/ISENTR) USED                          0.75000    
+    OUTLET VAPOR FRACTION                                    1.00000    
+    HEAD DEVELOPED,       M-KGF/KG                       2,500.90       
+    MECHANICAL EFFICIENCY USED                               0.95000    
+    INLET HEAT CAPACITY RATIO                                1.77266    
+    INLET VOLUMETRIC FLOW RATE , L/MIN                       5.81093    
+    OUTLET VOLUMETRIC FLOW RATE, L/MIN                       4.15992    
+    INLET  COMPRESSIBILITY FACTOR                            0.79023    
+    OUTLET COMPRESSIBILITY FACTOR                            0.81765    
+    AV. ISENT. VOL. EXPONENT                                 1.41806    
+    AV. ISENT. TEMP EXPONENT                                 1.38143    
+    AV. ACTUAL VOL. EXPONENT                                 1.61258    
+    AV. ACTUAL TEMP EXPONENT                                 1.46326    
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                       0.2803  KW              
+  COST                                   9.5314-03  $/HR            
+  CO2 EQUIVALENT EMISSIONS               8.7506-02  KG/HR           
+
+ BLOCK:  COMP-2   MODEL: COMPR           
+ -----------------------------
+   INLET STREAM:          S2      
+   OUTLET STREAM:         S3      
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 18      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-2   MODEL: COMPR (CONTINUED)           
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            5801.06         5801.06         0.00000    
+       MASS(KG/HR   )            167400.         167400.         0.00000    
+       ENTHALPY(CAL/SEC )       -60581.3         914168.        -1.06627    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             102.121      KG/HR           
+    PRODUCT STREAMS CO2E          102.121      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     1340.93      KG/HR           
+    TOTAL CO2E PRODUCTION         1340.93      KG/HR           
+
+                           ***  INPUT DATA  ***
+
+   ISENTROPIC CENTRIFUGAL COMPRESSOR
+    OUTLET PRESSURE  BAR                                     6.07950    
+    ISENTROPIC EFFICIENCY                                    0.75000    
+    MECHANICAL EFFICIENCY                                    0.95000    
+
+                           ***  RESULTS  ***
+
+    INDICATED  HORSEPOWER REQUIREMENT  KW                4,081.08       
+    BRAKE      HORSEPOWER REQUIREMENT  KW                4,295.87       
+    NET WORK REQUIRED                  KW                4,295.87       
+    POWER LOSSES                       KW                  214.794      
+    ISENTROPIC HORSEPOWER REQUIREMENT  KW                3,060.81       
+    CALCULATED OUTLET TEMP  C                              111.548      
+    ISENTROPIC TEMPERATURE  C                               89.9706     
+    EFFICIENCY (POLYTR/ISENTR) USED                          0.75000    
+    OUTLET VAPOR FRACTION                                    1.00000    
+    HEAD DEVELOPED,       M-KGF/KG                       6,712.17       
+    MECHANICAL EFFICIENCY USED                               0.95000    
+    INLET HEAT CAPACITY RATIO                                1.39911    
+    INLET VOLUMETRIC FLOW RATE , L/MIN                 788,461.         
+    OUTLET VOLUMETRIC FLOW RATE, L/MIN                 508,669.         
+    INLET  COMPRESSIBILITY FACTOR                            1.00000    
+    OUTLET COMPRESSIBILITY FACTOR                            1.00000    
+    AV. ISENT. VOL. EXPONENT                                 1.39745    
+    AV. ISENT. TEMP EXPONENT                                 1.39745    
+    AV. ACTUAL VOL. EXPONENT                                 1.58150    
+    AV. ACTUAL TEMP EXPONENT                                 1.58150    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 19      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-2   MODEL: COMPR (CONTINUED)           
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                    4295.8732  KW              
+  COST                                    146.0597  $/HR            
+  CO2 EQUIVALENT EMISSIONS               1340.9346  KG/HR           
+
+ BLOCK:  COMP-3   MODEL: COMPR           
+ -----------------------------
+   INLET STREAM:          S4      
+   OUTLET STREAM:         S5      
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            5801.06         5801.06         0.00000    
+       MASS(KG/HR   )            167400.         167400.         0.00000    
+       ENTHALPY(CAL/SEC )       -60581.3         638878.        -1.09482    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             102.121      KG/HR           
+    PRODUCT STREAMS CO2E          102.121      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     962.227      KG/HR           
+    TOTAL CO2E PRODUCTION         962.227      KG/HR           
+
+                           ***  INPUT DATA  ***
+
+   ISENTROPIC CENTRIFUGAL COMPRESSOR
+    OUTLET PRESSURE  BAR                                    10.1325     
+    ISENTROPIC EFFICIENCY                                    0.75000    
+    MECHANICAL EFFICIENCY                                    0.95000    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 20      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-3   MODEL: COMPR (CONTINUED)           
+
+                           ***  RESULTS  ***
+
+    INDICATED  HORSEPOWER REQUIREMENT  KW                2,928.50       
+    BRAKE      HORSEPOWER REQUIREMENT  KW                3,082.63       
+    NET WORK REQUIRED                  KW                3,082.63       
+    POWER LOSSES                       KW                  154.131      
+    ISENTROPIC HORSEPOWER REQUIREMENT  KW                2,196.37       
+    CALCULATED OUTLET TEMP  C                               87.1690     
+    ISENTROPIC TEMPERATURE  C                               71.6535     
+    EFFICIENCY (POLYTR/ISENTR) USED                          0.75000    
+    OUTLET VAPOR FRACTION                                    1.00000    
+    HEAD DEVELOPED,       M-KGF/KG                       4,816.51       
+    MECHANICAL EFFICIENCY USED                               0.95000    
+    INLET HEAT CAPACITY RATIO                                1.39911    
+    INLET VOLUMETRIC FLOW RATE , L/MIN                 394,231.         
+    OUTLET VOLUMETRIC FLOW RATE, L/MIN                 285,860.         
+    INLET  COMPRESSIBILITY FACTOR                            1.00000    
+    OUTLET COMPRESSIBILITY FACTOR                            1.00000    
+    AV. ISENT. VOL. EXPONENT                                 1.39781    
+    AV. ISENT. TEMP EXPONENT                                 1.39781    
+    AV. ACTUAL VOL. EXPONENT                                 1.58921    
+    AV. ACTUAL TEMP EXPONENT                                 1.58921    
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                    3082.6294  KW              
+  COST                                    104.8094  $/HR            
+  CO2 EQUIVALENT EMISSIONS                962.2268  KG/HR           
+
+ BLOCK:  COMP-5   MODEL: COMPR           
+ -----------------------------
+   INLET STREAM:          S25     
+   OUTLET STREAM:         VENT-5  
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            4.64722         4.64722         0.00000    
+       MASS(KG/HR   )            143.651         143.651         0.00000    
+       ENTHALPY(CAL/SEC )       -5779.33         2105.14        -1.36425    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 21      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-5   MODEL: COMPR (CONTINUED)           
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             9.74306      KG/HR           
+    PRODUCT STREAMS CO2E          9.74306      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     10.8464      KG/HR           
+    TOTAL CO2E PRODUCTION         10.8464      KG/HR           
+
+                           ***  INPUT DATA  ***
+
+   ISENTROPIC CENTRIFUGAL COMPRESSOR
+    OUTLET PRESSURE  BAR                                     1.01325    
+    ISENTROPIC EFFICIENCY                                    0.45000    
+    MECHANICAL EFFICIENCY                                    0.95000    
+
+                           ***  RESULTS  ***
+
+    INDICATED  HORSEPOWER REQUIREMENT  KW                   33.0107     
+    BRAKE      HORSEPOWER REQUIREMENT  KW                   34.7481     
+    NET WORK REQUIRED                  KW                   34.7481     
+    POWER LOSSES                       KW                    1.73741    
+    ISENTROPIC HORSEPOWER REQUIREMENT  KW                   14.8548     
+    CALCULATED OUTLET TEMP  C                              809.001      
+    ISENTROPIC TEMPERATURE  C                              396.143      
+    EFFICIENCY (POLYTR/ISENTR) USED                          0.45000    
+    OUTLET VAPOR FRACTION                                    1.00000    
+    HEAD DEVELOPED,       M-KGF/KG                      37,961.2        
+    MECHANICAL EFFICIENCY USED                               0.95000    
+    INLET HEAT CAPACITY RATIO                                1.39058    
+    INLET VOLUMETRIC FLOW RATE , L/MIN                  37,905.4        
+    OUTLET VOLUMETRIC FLOW RATE, L/MIN                   6,877.66       
+    INLET  COMPRESSIBILITY FACTOR                            1.00000    
+    OUTLET COMPRESSIBILITY FACTOR                            1.00000    
+    AV. ISENT. VOL. EXPONENT                                 1.36960    
+    AV. ISENT. TEMP EXPONENT                                 1.36960    
+    AV. ACTUAL VOL. EXPONENT                                 1.75516    
+    AV. ACTUAL TEMP EXPONENT                                 1.75516    
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                      34.7481  KW              
+  COST                                      1.1814  $/HR            
+  CO2 EQUIVALENT EMISSIONS                 10.8464  KG/HR           
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 22      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-6   MODEL: COMPR           
+ -----------------------------
+   INLET STREAM:          DESORBED
+   OUTLET STREAM:         S28     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            1.12570         1.12570         0.00000    
+       MASS(KG/HR   )            46.6640         46.6640         0.00000    
+       ENTHALPY(CAL/SEC )       -23793.8        -22060.7       -0.728387E-01
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             40.1091      KG/HR           
+    PRODUCT STREAMS CO2E          40.1091      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     2.38419      KG/HR           
+    TOTAL CO2E PRODUCTION         2.38419      KG/HR           
+
+                           ***  INPUT DATA  ***
+
+    GAS PHASE CALCULATION
+    NO FLASH PERFORMED
+   ISENTROPIC CENTRIFUGAL COMPRESSOR
+    OUTLET PRESSURE  BAR                                     1.01325    
+    ISENTROPIC EFFICIENCY                                    0.45000    
+    MECHANICAL EFFICIENCY                                    0.95000    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 23      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-6   MODEL: COMPR (CONTINUED)           
+
+                           ***  RESULTS  ***
+
+    INDICATED  HORSEPOWER REQUIREMENT  KW                    7.25619    
+    BRAKE      HORSEPOWER REQUIREMENT  KW                    7.63810    
+    NET WORK REQUIRED                  KW                    7.63810    
+    POWER LOSSES                       KW                    0.38190    
+    ISENTROPIC HORSEPOWER REQUIREMENT  KW                    3.26529    
+    CALCULATED OUTLET TEMP  C                              563.994      
+    ISENTROPIC TEMPERATURE  C                              286.139      
+    EFFICIENCY (POLYTR/ISENTR) USED                          0.45000    
+    OUTLET VAPOR FRACTION                                    1.00000    
+    HEAD DEVELOPED,       M-KGF/KG                      25,687.5        
+    MECHANICAL EFFICIENCY USED                               0.95000    
+    INLET HEAT CAPACITY RATIO                                1.30372    
+    INLET VOLUMETRIC FLOW RATE , L/MIN                   9,180.05       
+    OUTLET VOLUMETRIC FLOW RATE, L/MIN                   1,288.79       
+    INLET  COMPRESSIBILITY FACTOR                            1.00000    
+    OUTLET COMPRESSIBILITY FACTOR                            1.00000    
+    AV. ISENT. VOL. EXPONENT                                 1.26580    
+    AV. ISENT. TEMP EXPONENT                                 1.26580    
+    AV. ACTUAL VOL. EXPONENT                                 1.52584    
+    AV. ACTUAL TEMP EXPONENT                                 1.52584    
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                       7.6381  KW              
+  COST                                      0.2597  $/HR            
+  CO2 EQUIVALENT EMISSIONS                  2.3842  KG/HR           
+
+ BLOCK:  COMP-7   MODEL: COMPR           
+ -----------------------------
+   INLET STREAM:          S29     
+   OUTLET STREAM:         S30     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            1.12570         1.12570         0.00000    
+       MASS(KG/HR   )            46.6640         46.6640         0.00000    
+       ENTHALPY(CAL/SEC )       -23793.8        -23486.0       -0.129375E-01
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             40.1091      KG/HR           
+    PRODUCT STREAMS CO2E          40.1091      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION    0.423477      KG/HR           
+    TOTAL CO2E PRODUCTION        0.423477      KG/HR           
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 24      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-7   MODEL: COMPR (CONTINUED)           
+
+                           ***  INPUT DATA  ***
+
+   ISENTROPIC CENTRIFUGAL COMPRESSOR
+    OUTLET PRESSURE  BAR                                     3.03975    
+    ISENTROPIC EFFICIENCY                                    0.75000    
+    MECHANICAL EFFICIENCY                                    0.95000    
+
+                           ***  RESULTS  ***
+
+    INDICATED  HORSEPOWER REQUIREMENT  KW                    1.28883    
+    BRAKE      HORSEPOWER REQUIREMENT  KW                    1.35667    
+    NET WORK REQUIRED                  KW                    1.35667    
+    POWER LOSSES                       KW                    0.067833   
+    ISENTROPIC HORSEPOWER REQUIREMENT  KW                    0.96663    
+    CALCULATED OUTLET TEMP  C                              134.078      
+    ISENTROPIC TEMPERATURE  C                              107.798      
+    EFFICIENCY (POLYTR/ISENTR) USED                          0.75000    
+    OUTLET VAPOR FRACTION                                    1.00000    
+    HEAD DEVELOPED,       M-KGF/KG                       7,604.29       
+    MECHANICAL EFFICIENCY USED                               0.95000    
+    INLET HEAT CAPACITY RATIO                                1.30372    
+    INLET VOLUMETRIC FLOW RATE , L/MIN                     459.003      
+    OUTLET VOLUMETRIC FLOW RATE, L/MIN                     208.976      
+    INLET  COMPRESSIBILITY FACTOR                            1.00000    
+    OUTLET COMPRESSIBILITY FACTOR                            1.00000    
+    AV. ISENT. VOL. EXPONENT                                 1.28711    
+    AV. ISENT. TEMP EXPONENT                                 1.28711    
+    AV. ACTUAL VOL. EXPONENT                                 1.39624    
+    AV. ACTUAL TEMP EXPONENT                                 1.39624    
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                       1.3567  KW              
+  COST                                   4.6127-02  $/HR            
+  CO2 EQUIVALENT EMISSIONS                  0.4235  KG/HR           
+
+ BLOCK:  COMP-8   MODEL: COMPR           
+ -----------------------------
+   INLET STREAM:          S31     
+   OUTLET STREAM:         S32     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 25      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-8   MODEL: COMPR (CONTINUED)           
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            1.12570         1.12570         0.00000    
+       MASS(KG/HR   )            46.6640         46.6640         0.00000    
+       ENTHALPY(CAL/SEC )       -23793.8        -23608.4       -0.779169E-02
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             40.1091      KG/HR           
+    PRODUCT STREAMS CO2E          40.1091      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION    0.255042      KG/HR           
+    TOTAL CO2E PRODUCTION        0.255042      KG/HR           
+
+                           ***  INPUT DATA  ***
+
+   ISENTROPIC CENTRIFUGAL COMPRESSOR
+    OUTLET PRESSURE  BAR                                     6.07950    
+    ISENTROPIC EFFICIENCY                                    0.75000    
+    MECHANICAL EFFICIENCY                                    0.95000    
+
+                           ***  RESULTS  ***
+
+    INDICATED  HORSEPOWER REQUIREMENT  KW                    0.77621    
+    BRAKE      HORSEPOWER REQUIREMENT  KW                    0.81706    
+    NET WORK REQUIRED                  KW                    0.81706    
+    POWER LOSSES                       KW                    0.040853   
+    ISENTROPIC HORSEPOWER REQUIREMENT  KW                    0.58216    
+    CALCULATED OUTLET TEMP  C                               91.9981     
+    ISENTROPIC TEMPERATURE  C                               75.6660     
+    EFFICIENCY (POLYTR/ISENTR) USED                          0.75000    
+    OUTLET VAPOR FRACTION                                    1.00000    
+    HEAD DEVELOPED,       M-KGF/KG                       4,579.73       
+    MECHANICAL EFFICIENCY USED                               0.95000    
+    INLET HEAT CAPACITY RATIO                                1.30372    
+    INLET VOLUMETRIC FLOW RATE , L/MIN                     153.001      
+    OUTLET VOLUMETRIC FLOW RATE, L/MIN                      93.6911     
+    INLET  COMPRESSIBILITY FACTOR                            1.00000    
+    OUTLET COMPRESSIBILITY FACTOR                            1.00000    
+    AV. ISENT. VOL. EXPONENT                                 1.29270    
+    AV. ISENT. TEMP EXPONENT                                 1.29270    
+    AV. ACTUAL VOL. EXPONENT                                 1.41331    
+    AV. ACTUAL TEMP EXPONENT                                 1.41331    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 26      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-8   MODEL: COMPR (CONTINUED)           
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                       0.8171  KW              
+  COST                                   2.7780-02  $/HR            
+  CO2 EQUIVALENT EMISSIONS                  0.2550  KG/HR           
+
+ BLOCK:  COMP-9   MODEL: COMPR           
+ -----------------------------
+   INLET STREAM:          S33     
+   OUTLET STREAM:         S34     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            1.12570         1.12570         0.00000    
+       MASS(KG/HR   )            46.6640         46.6640         0.00000    
+       ENTHALPY(CAL/SEC )       -23793.8        -23688.2       -0.443907E-02
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             40.1091      KG/HR           
+    PRODUCT STREAMS CO2E          40.1091      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION    0.184049      KG/HR           
+    TOTAL CO2E PRODUCTION        0.184049      KG/HR           
+
+                           ***  INPUT DATA  ***
+
+   ISENTROPIC CENTRIFUGAL COMPRESSOR
+    OUTLET PRESSURE  BAR                                    10.1325     
+    ISENTROPIC EFFICIENCY                                    0.95000    
+    MECHANICAL EFFICIENCY                                    0.75000    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 27      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  COMP-9   MODEL: COMPR (CONTINUED)           
+
+                           ***  RESULTS  ***
+
+    INDICATED  HORSEPOWER REQUIREMENT  KW                    0.44222    
+    BRAKE      HORSEPOWER REQUIREMENT  KW                    0.58963    
+    NET WORK REQUIRED                  KW                    0.58963    
+    POWER LOSSES                       KW                    0.14741    
+    ISENTROPIC HORSEPOWER REQUIREMENT  KW                    0.42011    
+    CALCULATED OUTLET TEMP  C                               63.7300     
+    ISENTROPIC TEMPERATURE  C                               61.8311     
+    EFFICIENCY (POLYTR/ISENTR) USED                          0.95000    
+    OUTLET VAPOR FRACTION                                    1.00000    
+    HEAD DEVELOPED,       M-KGF/KG                       3,304.93       
+    MECHANICAL EFFICIENCY USED                               0.75000    
+    INLET HEAT CAPACITY RATIO                                1.30372    
+    INLET VOLUMETRIC FLOW RATE , L/MIN                      76.5004     
+    OUTLET VOLUMETRIC FLOW RATE, L/MIN                      51.8628     
+    INLET  COMPRESSIBILITY FACTOR                            1.00000    
+    OUTLET COMPRESSIBILITY FACTOR                            1.00000    
+    AV. ISENT. VOL. EXPONENT                                 1.29537    
+    AV. ISENT. TEMP EXPONENT                                 1.29537    
+    AV. ACTUAL VOL. EXPONENT                                 1.31421    
+    AV. ACTUAL TEMP EXPONENT                                 1.31421    
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                       0.5896  KW              
+  COST                                   2.0047-02  $/HR            
+  CO2 EQUIVALENT EMISSIONS                  0.1840  KG/HR           
+
+ BLOCK:  DESORB   MODEL: USER2           
+ -----------------------------
+   INLET STREAMS:         TOVAC   
+   OUTLET STREAMS:        DESORBED   STRIP   
+   FIRST PROPERTY SPECS
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+   SECOND PROPERTY SPECS
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10724.2         10724.2        0.169615E-15
+       MASS(KG/HR   )           0.220105E+07    0.220105E+07     0.00000    
+       ENTHALPY(CAL/SEC )       0.170795E+09    0.170778E+09    0.998400E-04
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 28      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  DESORB   MODEL: USER2 (CONTINUED)           
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             42.7602      KG/HR           
+    PRODUCT STREAMS CO2E          42.7602      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+
+                          ***  INPUT DATA  ***
+
+   FLASH SPECS FOR STREAM DESORBED
+   ONE    PHASE  TP  FLASH   SPECIFIED PHASE IS  VAPOR  
+   SPECIFIED TEMPERATURE C                                  25.0000     
+   SPECIFIED PRESSURE    BAR                                 0.050662   
+   MAXIMUM NO. ITERATIONS                                   30
+   CONVERGENCE TOLERANCE                                     0.000100000
+
+   FLASH SPECS FOR STREAM STRIP   
+   ONE    PHASE  TP  FLASH   SPECIFIED PHASE IS  LIQUID 
+   SPECIFIED TEMPERATURE C                                  25.0000     
+   SPECIFIED PRESSURE    BAR                                 0.050662   
+   MAXIMUM NO. ITERATIONS                                   30
+   CONVERGENCE TOLERANCE                                     0.000100000
+
+                          ***    ARRAYS    ***
+     INTEGER VECTOR AS FOLLOWS   1 VALUES
+
+                   1
+     REAL VECTOR AS FOLLOWS    7 VALUES
+
+          0.0000     0.50000E-01  93.800      93.800      93.800    
+          0.0000      93.800    
+     CHARACTER STRING VECTOR AS FOLLOWS     7   VALUES
+        NCOL    PRESSURE (ATM)    CO2 DESORPTION EFF (%)    O2 DESORPTION EFF (%)       
+        N2 DESORPTION EFF (%)    SORBENT VAPOR PRESSURE    DESORPTION EFFICIENCY        
+
+ BLOCK:  FLASH-2  MODEL: FLASH2          
+ ------------------------------
+   INLET STREAM:          S16     
+   OUTLET VAPOR STREAM:   S17     
+   OUTLET LIQUID STREAM:  S18     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 29      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  FLASH-2  MODEL: FLASH2 (CONTINUED)          
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10750.2         10750.2         0.00000    
+       MASS(KG/HR   )           0.220183E+07    0.220183E+07    0.211488E-15
+       ENTHALPY(CAL/SEC )       0.170788E+09    0.170788E+09   -0.155159E-06
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             54.2092      KG/HR           
+    PRODUCT STREAMS CO2E          54.2092      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE  PQ  FLASH
+   SPECIFIED PRESSURE    BAR                                 6.07950    
+   SPECIFIED HEAT DUTY   CAL/SEC                             0.0        
+   MAXIMUM NO. ITERATIONS                                   30
+   CONVERGENCE TOLERANCE                                     0.000100000
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    25.000    
+   OUTLET PRESSURE       BAR                                  6.0795    
+   VAPOR FRACTION                                             0.0000    
+
+
+
+   V-L PHASE EQUILIBRIUM : 
+
+      COMP              F(I)           X(I)           Y(I)           K(I)      
+      N2               0.12787E-02    0.12787E-02    0.61333         459.20    
+      O2               0.11341E-02    0.11341E-02    0.38614         325.98    
+      CO2              0.11458E-03    0.11458E-03    0.52473E-03     4.3845    
+      SORBENT          0.99747        0.99747        0.18033E-14    0.17308E-14
+
+ BLOCK:  FLASH-3  MODEL: FLASH2          
+ ------------------------------
+   INLET STREAM:          S19     
+   OUTLET VAPOR STREAM:   S20     
+   OUTLET LIQUID STREAM:  S21     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 30      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  FLASH-3  MODEL: FLASH2 (CONTINUED)          
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10750.2         10750.2         0.00000    
+       MASS(KG/HR   )           0.220183E+07    0.220183E+07     0.00000    
+       ENTHALPY(CAL/SEC )       0.170788E+09    0.170788E+09    0.845361E-09
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             54.2092      KG/HR           
+    PRODUCT STREAMS CO2E          54.2092      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE  PQ  FLASH
+   SPECIFIED PRESSURE    BAR                                 3.03975    
+   SPECIFIED HEAT DUTY   CAL/SEC                             0.0        
+   MAXIMUM NO. ITERATIONS                                   30
+   CONVERGENCE TOLERANCE                                     0.000100000
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    25.025    
+   OUTLET PRESSURE       BAR                                  3.0398    
+   VAPOR FRACTION                                            0.11375E-02
+
+
+
+   V-L PHASE EQUILIBRIUM : 
+
+      COMP              F(I)           X(I)           Y(I)           K(I)      
+      N2               0.12787E-02    0.62593E-03    0.57452         917.87    
+      O2               0.11341E-02    0.65194E-03    0.42449         651.11    
+      CO2              0.11458E-03    0.11358E-03    0.99562E-03     8.7661    
+      SORBENT          0.99747        0.99861        0.34734E-14    0.34783E-14
+
+ BLOCK:  FLASH-4  MODEL: FLASH2          
+ ------------------------------
+   INLET STREAM:          S22     
+   OUTLET VAPOR STREAM:   VENT-4  
+   OUTLET LIQUID STREAM:  S23     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 31      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  FLASH-4  MODEL: FLASH2 (CONTINUED)          
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10737.9         10737.9       -0.169398E-15
+       MASS(KG/HR   )           0.220147E+07    0.220147E+07     0.00000    
+       ENTHALPY(CAL/SEC )       0.170788E+09    0.170788E+09    0.223299E-09
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             53.6734      KG/HR           
+    PRODUCT STREAMS CO2E          53.6734      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE  PQ  FLASH
+   SPECIFIED PRESSURE    BAR                                 1.01325    
+   SPECIFIED HEAT DUTY   CAL/SEC                             0.0        
+   MAXIMUM NO. ITERATIONS                                   30
+   CONVERGENCE TOLERANCE                                     0.000100000
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    25.046    
+   OUTLET PRESSURE       BAR                                  1.0132    
+   VAPOR FRACTION                                            0.84690E-03
+
+
+
+   V-L PHASE EQUILIBRIUM : 
+
+      COMP              F(I)           X(I)           Y(I)           K(I)      
+      N2               0.62593E-03    0.18796E-03    0.51733         2752.4    
+      O2               0.65194E-03    0.24586E-03    0.47974         1951.3    
+      CO2              0.11358E-03    0.11119E-03    0.29236E-02     26.293    
+      SORBENT          0.99861        0.99945        0.10471E-13    0.10476E-13
+
+ BLOCK:  FLASH-5  MODEL: FLASH2          
+ ------------------------------
+   INLET STREAM:          S24     
+   OUTLET VAPOR STREAM:   S25     
+   OUTLET LIQUID STREAM:  TOVAC   
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 32      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  FLASH-5  MODEL: FLASH2 (CONTINUED)          
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10728.9         10728.9         0.00000    
+       MASS(KG/HR   )           0.220120E+07    0.220120E+07     0.00000    
+       ENTHALPY(CAL/SEC )       0.170789E+09    0.170789E+09    0.324654E-11
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             52.5033      KG/HR           
+    PRODUCT STREAMS CO2E          52.5033      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE  PQ  FLASH
+   SPECIFIED PRESSURE    BAR                                 0.050662   
+   SPECIFIED HEAT DUTY   CAL/SEC                             0.0        
+   MAXIMUM NO. ITERATIONS                                   30
+   CONVERGENCE TOLERANCE                                     0.000100000
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    25.058    
+   OUTLET PRESSURE       BAR                                 0.50662E-01
+   VAPOR FRACTION                                            0.43315E-03
+
+
+
+   V-L PHASE EQUILIBRIUM : 
+
+      COMP              F(I)           X(I)           Y(I)           K(I)      
+      N2               0.18796E-03    0.75673E-05    0.41647         55035.    
+      O2               0.24586E-03    0.13739E-04    0.53589         39005.    
+      CO2              0.11119E-03    0.90599E-04    0.47638E-01     525.81    
+      SORBENT          0.99945        0.99989        0.20995E-12    0.20997E-12
+
+ BLOCK:  FLASH-6  MODEL: FLASH2          
+ ------------------------------
+   INLET STREAM:          S36     
+   OUTLET VAPOR STREAM:   S40     
+   OUTLET LIQUID STREAM:  S37     
+   PROPERTY OPTION SET:   PSRK      RKS-MHV1 EQUATION OF STATE                  
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 33      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  FLASH-6  MODEL: FLASH2 (CONTINUED)          
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            1.12570         1.12570         0.00000    
+       MASS(KG/HR   )            46.6640         46.6640       -0.152268E-15
+       ENTHALPY(CAL/SEC )       -24325.2        -24325.2       -0.977001E-08
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             40.1091      KG/HR           
+    PRODUCT STREAMS CO2E          40.1091      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE  PQ  FLASH
+   SPECIFIED PRESSURE    BAR                                35.4637     
+   SPECIFIED HEAT DUTY   CAL/SEC                             0.0        
+   MAXIMUM NO. ITERATIONS                                   30
+   CONVERGENCE TOLERANCE                                     0.000100000
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                   -15.000    
+   OUTLET PRESSURE       BAR                                  35.464    
+   VAPOR FRACTION                                            0.64760    
+
+
+
+   V-L PHASE EQUILIBRIUM : 
+
+      COMP              F(I)           X(I)           Y(I)           K(I)      
+      N2               0.67622E-01    0.63045E-02    0.10099         16.018    
+      O2               0.12277        0.15395E-01    0.18121         11.771    
+      CO2              0.80960        0.97830        0.71781        0.73373    
+
+ BLOCK:  FLASH-7  MODEL: FLASH2          
+ ------------------------------
+   INLET STREAM:          S42     
+   OUTLET VAPOR STREAM:   S45     
+   OUTLET LIQUID STREAM:  S43     
+   PROPERTY OPTION SET:   PSRK      RKS-MHV1 EQUATION OF STATE                  
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 34      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  FLASH-7  MODEL: FLASH2 (CONTINUED)          
+    TOTAL BALANCE
+       MOLE(KMOL/HR )           0.729004        0.729004         0.00000    
+       MASS(KG/HR   )            29.3190         29.3190         0.00000    
+       ENTHALPY(CAL/SEC )       -14472.4        -14472.4       -0.446057E-06
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             23.0296      KG/HR           
+    PRODUCT STREAMS CO2E          23.0296      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE  PQ  FLASH
+   SPECIFIED PRESSURE    BAR                                60.7950     
+   SPECIFIED HEAT DUTY   CAL/SEC                             0.0        
+   MAXIMUM NO. ITERATIONS                                   30
+   CONVERGENCE TOLERANCE                                     0.000100000
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                   -59.999    
+   OUTLET PRESSURE       BAR                                  60.795    
+   VAPOR FRACTION                                            0.22846    
+
+
+
+   V-L PHASE EQUILIBRIUM : 
+
+      COMP              F(I)           X(I)           Y(I)           K(I)      
+      N2               0.10099        0.30628E-01    0.33861         11.055    
+      O2               0.18121        0.74449E-01    0.54174         7.2764    
+      CO2              0.71781        0.89492        0.11965        0.13371    
+
+ BLOCK:  HX-1     MODEL: HEATER          
+ ------------------------------
+   INLET STREAM:          S1      
+   OUTLET STREAM:         S2      
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 35      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  HX-1     MODEL: HEATER (CONTINUED)          
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            5801.06         5801.06         0.00000    
+       MASS(KG/HR   )            167400.         167400.         0.00000    
+       ENTHALPY(CAL/SEC )       0.166340E+07    -60581.3         1.03642    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             102.121      KG/HR           
+    PRODUCT STREAMS CO2E          102.121      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   ONE    PHASE  TP  FLASH   SPECIFIED PHASE IS  VAPOR  
+   SPECIFIED TEMPERATURE                C                        25.0000     
+   SPECIFIED PRESSURE                   BAR                       3.03975    
+   MAXIMUM NO. ITERATIONS                                        30
+   CONVERGENCE TOLERANCE                                          0.000100000
+
+
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    25.000    
+   OUTLET PRESSURE       BAR                                  3.0398    
+   HEAT DUTY             CAL/SEC                            -0.17240E+07
+
+
+
+
+
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR WATER                     COOLH2O
+  RATE OF CONSUMPTION                    1.2447+06  KG/HR           
+  COST                                    186.7093  $/HR            
+
+ BLOCK:  HX-10    MODEL: HEATER          
+ ------------------------------
+   INLET STREAM:          S32     
+   OUTLET STREAM:         S33     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            1.12570         1.12570         0.00000    
+       MASS(KG/HR   )            46.6640         46.6640         0.00000    
+       ENTHALPY(CAL/SEC )       -23608.4        -23793.8        0.779169E-02
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             40.1091      KG/HR           
+    PRODUCT STREAMS CO2E          40.1091      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 36      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  HX-10    MODEL: HEATER (CONTINUED)          
+
+                          ***  INPUT DATA  ***
+   ONE    PHASE  TP  FLASH   SPECIFIED PHASE IS  VAPOR  
+   SPECIFIED TEMPERATURE                C                        25.0000     
+   SPECIFIED PRESSURE                   BAR                       6.07950    
+   MAXIMUM NO. ITERATIONS                                        30
+   CONVERGENCE TOLERANCE                                          0.000100000
+
+
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    25.000    
+   OUTLET PRESSURE       BAR                                  6.0795    
+   HEAT DUTY             CAL/SEC                             -185.39    
+
+
+
+
+
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR WATER                     COOLH2O
+  RATE OF CONSUMPTION                     133.8562  KG/HR           
+  COST                                   2.0078-02  $/HR            
+
+ BLOCK:  HX-11    MODEL: HEATER          
+ ------------------------------
+   INLET STREAM:          S34     
+   OUTLET STREAM:         TOPURE  
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            1.12570         1.12570         0.00000    
+       MASS(KG/HR   )            46.6640         46.6640         0.00000    
+       ENTHALPY(CAL/SEC )       -23688.2        -23793.8        0.443907E-02
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             40.1091      KG/HR           
+    PRODUCT STREAMS CO2E          40.1091      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   ONE    PHASE  TP  FLASH   SPECIFIED PHASE IS  VAPOR  
+   SPECIFIED TEMPERATURE                C                        25.0000     
+   SPECIFIED PRESSURE                   BAR                      10.1325     
+   MAXIMUM NO. ITERATIONS                                        30
+   CONVERGENCE TOLERANCE                                          0.000100000
+
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 37      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  HX-11    MODEL: HEATER (CONTINUED)          
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    25.000    
+   OUTLET PRESSURE       BAR                                  10.133    
+   HEAT DUTY             CAL/SEC                             -105.62    
+
+
+
+
+
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR WATER                     COOLH2O
+  RATE OF CONSUMPTION                      76.2603  KG/HR           
+  COST                                   1.1439-02  $/HR            
+
+ BLOCK:  HX-12    MODEL: HEATER          
+ ------------------------------
+   INLET STREAM:          S35     
+   OUTLET STREAM:         S36     
+   PROPERTY OPTION SET:   PSRK      RKS-MHV1 EQUATION OF STATE                  
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            1.12570         1.12570         0.00000    
+       MASS(KG/HR   )            46.6640         46.6640         0.00000    
+       ENTHALPY(CAL/SEC )       -23437.0        -24325.2        0.365146E-01
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             40.1091      KG/HR           
+    PRODUCT STREAMS CO2E          40.1091      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE  TP  FLASH
+   SPECIFIED TEMPERATURE                C                       -15.0000     
+   SPECIFIED PRESSURE                   BAR                      35.4637     
+   MAXIMUM NO. ITERATIONS                                        30
+   CONVERGENCE TOLERANCE                                          0.000100000
+
+
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                   -15.000    
+   OUTLET PRESSURE       BAR                                  35.464    
+   HEAT DUTY             CAL/SEC                             -888.22    
+   OUTLET VAPOR FRACTION                                     0.64760    
+   PRESSURE-DROP CORRELATION PARAMETER                        0.0000    
+
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 38      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  HX-12    MODEL: HEATER (CONTINUED)          
+
+   V-L PHASE EQUILIBRIUM : 
+
+      COMP              F(I)           X(I)           Y(I)           K(I)      
+      N2               0.67622E-01    0.63045E-02    0.10099         16.018    
+      O2               0.12277        0.15395E-01    0.18121         11.771    
+      CO2              0.80960        0.97830        0.71781        0.73373    
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR REFRIGERANT                 R134A
+  RATE OF CONSUMPTION                      62.5911  KG/HR           
+  COST                                      0.2062  $/HR            
+
+ BLOCK:  HX-13    MODEL: HEATER          
+ ------------------------------
+   INLET STREAM:          S38     
+   OUTLET STREAM:         S39     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+
+     ***********************************************************************
+     *                                                                     *
+     *     ALL COMPONENTS DECLARED AS HENRY                                *   
+     *                                                                     *
+     ***********************************************************************
+
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )           0.396692        0.396692         0.00000    
+       MASS(KG/HR   )            17.3450         17.3450         0.00000    
+       ENTHALPY(CAL/SEC )       -10518.5        -10606.5        0.830419E-02
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             17.0795      KG/HR           
+    PRODUCT STREAMS CO2E          17.0795      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE  TP  FLASH
+   SPECIFIED TEMPERATURE                C                       -60.0000     
+   SPECIFIED PRESSURE                   BAR                      60.7950     
+   MAXIMUM NO. ITERATIONS                                        30
+   CONVERGENCE TOLERANCE                                          0.000100000
+
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 39      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  HX-13    MODEL: HEATER (CONTINUED)          
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                   -60.000    
+   OUTLET PRESSURE       BAR                                  60.795    
+   HEAT DUTY             CAL/SEC                             -88.079    
+   OUTLET VAPOR FRACTION                                      0.0000    
+
+
+
+   V-L PHASE EQUILIBRIUM : 
+
+      COMP              F(I)           X(I)           Y(I)           K(I)      
+      N2               0.63045E-02    0.63045E-02    0.19298         9.1344    
+      O2               0.15395E-01    0.15395E-01    0.56699         10.991    
+      CO2              0.97830        0.97830        0.24003        0.73219E-01
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR REFRIGERANT                   R23
+  RATE OF CONSUMPTION                       5.9105  KG/HR           
+  COST                                   5.0580-02  $/HR            
+
+ BLOCK:  HX-14    MODEL: HEATER          
+ ------------------------------
+   INLET STREAM:          S41     
+   OUTLET STREAM:         S42     
+   PROPERTY OPTION SET:   PSRK      RKS-MHV1 EQUATION OF STATE                  
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )           0.729004        0.729004         0.00000    
+       MASS(KG/HR   )            29.3190         29.3190         0.00000    
+       ENTHALPY(CAL/SEC )       -13738.8        -14472.4        0.506934E-01
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             23.0296      KG/HR           
+    PRODUCT STREAMS CO2E          23.0296      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE  TP  FLASH
+   SPECIFIED TEMPERATURE                C                       -60.0000     
+   SPECIFIED PRESSURE                   BAR                      60.7950     
+   MAXIMUM NO. ITERATIONS                                        30
+   CONVERGENCE TOLERANCE                                          0.000100000
+
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 40      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  HX-14    MODEL: HEATER (CONTINUED)          
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                   -60.000    
+   OUTLET PRESSURE       BAR                                  60.795    
+   HEAT DUTY             CAL/SEC                             -733.66    
+   OUTLET VAPOR FRACTION                                     0.22846    
+
+
+
+   V-L PHASE EQUILIBRIUM : 
+
+      COMP              F(I)           X(I)           Y(I)           K(I)      
+      N2               0.10099        0.30627E-01    0.33861         11.056    
+      O2               0.18121        0.74449E-01    0.54175         7.2770    
+      CO2              0.71781        0.89492        0.11965        0.13369    
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR REFRIGERANT                   R23
+  RATE OF CONSUMPTION                      49.2317  KG/HR           
+  COST                                      0.4213  $/HR            
+
+ BLOCK:  HX-15    MODEL: HEATER          
+ ------------------------------
+   INLET STREAM:          S45     
+   OUTLET STREAM:         S46     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )           0.166547        0.166547         0.00000    
+       MASS(KG/HR   )            5.34390         5.34390       -0.166204E-15
+       ENTHALPY(CAL/SEC )       -563.479        -521.597       -0.743275E-01
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E            0.877002      KG/HR           
+    PRODUCT STREAMS CO2E         0.877002      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 41      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  HX-15    MODEL: HEATER (CONTINUED)          
+
+                          ***  INPUT DATA  ***
+   ONE    PHASE  TP  FLASH   SPECIFIED PHASE IS  VAPOR  
+   SPECIFIED TEMPERATURE                C                        21.0000     
+   SPECIFIED PRESSURE                   BAR                      60.0000     
+   MAXIMUM NO. ITERATIONS                                        30
+   CONVERGENCE TOLERANCE                                          0.000100000
+
+
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    21.000    
+   OUTLET PRESSURE       BAR                                  60.000    
+   HEAT DUTY             CAL/SEC                              41.882    
+
+
+
+
+
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR GENERAL                       AIR
+  RATE OF CONSUMPTION                      63.1266  KG/HR           
+  COST                                      0.0     $/HR            
+
+ BLOCK:  HX-2     MODEL: HEATER          
+ ------------------------------
+   INLET STREAM:          S3      
+   OUTLET STREAM:         S4      
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            5801.06         5801.06         0.00000    
+       MASS(KG/HR   )            167400.         167400.         0.00000    
+       ENTHALPY(CAL/SEC )        914168.        -60581.3         1.06627    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             102.121      KG/HR           
+    PRODUCT STREAMS CO2E          102.121      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   ONE    PHASE  TP  FLASH   SPECIFIED PHASE IS  VAPOR  
+   SPECIFIED TEMPERATURE                C                        25.0000     
+   SPECIFIED PRESSURE                   BAR                       6.07950    
+   MAXIMUM NO. ITERATIONS                                        30
+   CONVERGENCE TOLERANCE                                          0.000100000
+
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 42      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  HX-2     MODEL: HEATER (CONTINUED)          
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    25.000    
+   OUTLET PRESSURE       BAR                                  6.0795    
+   HEAT DUTY             CAL/SEC                            -0.97475E+06
+
+
+
+
+
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR WATER                     COOLH2O
+  RATE OF CONSUMPTION                    7.0378+05  KG/HR           
+  COST                                    105.5666  $/HR            
+
+ BLOCK:  HX-3     MODEL: HEATER          
+ ------------------------------
+   INLET STREAM:          S5      
+   OUTLET STREAM:         RICHAIR 
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            5801.06         5801.06         0.00000    
+       MASS(KG/HR   )            167400.         167400.         0.00000    
+       ENTHALPY(CAL/SEC )        638878.        -60581.3         1.09482    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             102.121      KG/HR           
+    PRODUCT STREAMS CO2E          102.121      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   ONE    PHASE  TP  FLASH   SPECIFIED PHASE IS  VAPOR  
+   SPECIFIED TEMPERATURE                C                        25.0000     
+   SPECIFIED PRESSURE                   BAR                      10.1325     
+   MAXIMUM NO. ITERATIONS                                        30
+   CONVERGENCE TOLERANCE                                          0.000100000
+
+
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    25.000    
+   OUTLET PRESSURE       BAR                                  10.133    
+   HEAT DUTY             CAL/SEC                            -0.69946E+06
+
+
+
+
+
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR WATER                     COOLH2O
+  RATE OF CONSUMPTION                    5.0502+05  KG/HR           
+  COST                                     75.7524  $/HR            
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 43      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  HX-5     MODEL: HEATER          
+ ------------------------------
+   INLET STREAM:          FEEDSORB
+   OUTLET STREAM:         S8      
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+
+     ***********************************************************************
+     *                                                                     *
+     *     MINIMUM APPROACH TEMPERATURE VIOLATED WITH UTILITY              *   
+     *                                                                     *
+     ***********************************************************************
+
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10723.1         10723.1         0.00000    
+       MASS(KG/HR   )           0.220101E+07    0.220101E+07     0.00000    
+       ENTHALPY(CAL/SEC )       0.170819E+09    0.170801E+09    0.103431E-03
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             2.63788      KG/HR           
+    PRODUCT STREAMS CO2E          2.63788      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE  TP  FLASH
+   SPECIFIED TEMPERATURE                C                        25.0000     
+   SPECIFIED PRESSURE                   BAR                       1.01325    
+   MAXIMUM NO. ITERATIONS                                        30
+   CONVERGENCE TOLERANCE                                          0.000100000
+
+
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    25.000    
+   OUTLET PRESSURE       BAR                                  1.0132    
+   HEAT DUTY             CAL/SEC                             -17668.    
+   OUTLET VAPOR FRACTION                                      0.0000    
+   PRESSURE-DROP CORRELATION PARAMETER                        0.0000    
+
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 44      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  HX-5     MODEL: HEATER (CONTINUED)          
+
+   V-L PHASE EQUILIBRIUM : 
+
+      COMP              F(I)           X(I)           Y(I)           K(I)      
+      N2               0.46687E-06    0.46687E-06    0.41613         2751.7    
+      O2               0.84766E-06    0.84766E-06    0.53632         1953.4    
+      CO2              0.55897E-05    0.55897E-05    0.47546E-01     26.260    
+      SORBENT          0.99999        0.99999        0.33636E-11    0.10384E-13
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR WATER                     COOLH2O
+  RATE OF CONSUMPTION                    1.2756+04  KG/HR           
+  COST                                      1.9135  $/HR            
+
+ BLOCK:  HX-8     MODEL: HEATER          
+ ------------------------------
+   INLET STREAM:          S28     
+   OUTLET STREAM:         S29     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            1.12570         1.12570         0.00000    
+       MASS(KG/HR   )            46.6640         46.6640         0.00000    
+       ENTHALPY(CAL/SEC )       -22060.7        -23793.8        0.728387E-01
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             40.1091      KG/HR           
+    PRODUCT STREAMS CO2E          40.1091      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   ONE    PHASE  TP  FLASH   SPECIFIED PHASE IS  VAPOR  
+   SPECIFIED TEMPERATURE                C                        25.0000     
+   SPECIFIED PRESSURE                   BAR                       1.01325    
+   MAXIMUM NO. ITERATIONS                                        30
+   CONVERGENCE TOLERANCE                                          0.000100000
+
+
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    25.000    
+   OUTLET PRESSURE       BAR                                  1.0132    
+   HEAT DUTY             CAL/SEC                             -1733.1    
+
+
+
+
+
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR WATER                     COOLH2O
+  RATE OF CONSUMPTION                    1251.3218  KG/HR           
+  COST                                      0.1877  $/HR            
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 45      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  HX-9     MODEL: HEATER          
+ ------------------------------
+   INLET STREAM:          S30     
+   OUTLET STREAM:         S31     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            1.12570         1.12570         0.00000    
+       MASS(KG/HR   )            46.6640         46.6640         0.00000    
+       ENTHALPY(CAL/SEC )       -23486.0        -23793.8        0.129375E-01
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             40.1091      KG/HR           
+    PRODUCT STREAMS CO2E          40.1091      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   ONE    PHASE  TP  FLASH   SPECIFIED PHASE IS  VAPOR  
+   SPECIFIED TEMPERATURE                C                        25.0000     
+   SPECIFIED PRESSURE                   BAR                       3.03975    
+   MAXIMUM NO. ITERATIONS                                        30
+   CONVERGENCE TOLERANCE                                          0.000100000
+
+
+
+                           ***  RESULTS  ***
+   OUTLET TEMPERATURE    C                                    25.000    
+   OUTLET PRESSURE       BAR                                  3.0398    
+   HEAT DUTY             CAL/SEC                             -307.83    
+
+
+
+
+
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR WATER                     COOLH2O
+  RATE OF CONSUMPTION                     222.2579  KG/HR           
+  COST                                   3.3339-02  $/HR            
+
+ BLOCK:  M-1      MODEL: MIXER           
+ -----------------------------
+   INLET STREAMS:         RECYCLE     MAKEUP  
+   OUTLET STREAM:         FEEDSORB
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 46      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  M-1      MODEL: MIXER (CONTINUED)           
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10723.1         10723.1         0.00000    
+       MASS(KG/HR   )           0.220101E+07    0.220101E+07     0.00000    
+       ENTHALPY(CAL/SEC )       0.170819E+09    0.170819E+09     0.00000    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             2.63788      KG/HR           
+    PRODUCT STREAMS CO2E          2.63788      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE      FLASH
+   MAXIMUM NO. ITERATIONS                                   30
+   CONVERGENCE TOLERANCE                                     0.000100000
+   OUTLET PRESSURE:  MINIMUM OF INLET STREAM PRESSURES
+
+ BLOCK:  M-2      MODEL: MIXER           
+ -----------------------------
+   INLET STREAMS:         S39         S43     
+   OUTLET STREAM:         S44     
+   PROPERTY OPTION SET:   PSRK      RKS-MHV1 EQUATION OF STATE                  
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )           0.959149        0.959149         0.00000    
+       MASS(KG/HR   )            41.3201         41.3201         0.00000    
+       ENTHALPY(CAL/SEC )       -24515.5        -24515.5       -0.148395E-15
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             39.2321      KG/HR           
+    PRODUCT STREAMS CO2E          39.2321      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 47      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  M-2      MODEL: MIXER (CONTINUED)           
+
+                          ***  INPUT DATA  ***
+   TWO    PHASE      FLASH
+   MAXIMUM NO. ITERATIONS                                   30
+   CONVERGENCE TOLERANCE                                     0.000100000
+   OUTLET PRESSURE:  MINIMUM OF INLET STREAM PRESSURES
+
+ BLOCK:  P-1      MODEL: PUMP            
+ ----------------------------
+   INLET STREAM:          S8      
+   OUTLET STREAM:         LEANSORB
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10723.1         10723.1         0.00000    
+       MASS(KG/HR   )           0.220101E+07    0.220101E+07     0.00000    
+       ENTHALPY(CAL/SEC )       0.170801E+09    0.171000E+09   -0.116411E-02
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             2.63788      KG/HR           
+    PRODUCT STREAMS CO2E          2.63788      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     273.846      KG/HR           
+    TOTAL CO2E PRODUCTION         273.846      KG/HR           
+
+                          ***  INPUT DATA  ***
+    OUTLET PRESSURE  BAR                                   11.8044     
+    PUMP EFFICIENCY                                         0.75000    
+    DRIVER EFFICIENCY                                       0.95000    
+
+    FLASH SPECIFICATIONS:
+    LIQUID PHASE CALCULATION
+    NO FLASH PERFORMED
+    MAXIMUM NUMBER OF ITERATIONS                            30
+    TOLERANCE                                               0.000100000
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 48      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  P-1      MODEL: PUMP (CONTINUED)            
+
+                           ***  RESULTS  ***
+    VOLUMETRIC FLOW RATE  L/MIN                        34,755.2        
+    PRESSURE CHANGE  BAR                                   10.7911     
+    NPSH AVAILABLE   M-KGF/KG                               9.75894    
+    FLUID POWER  KW                                       625.079      
+    BRAKE POWER  KW                                       833.438      
+    ELECTRICITY  KW                                       877.303      
+    PUMP EFFICIENCY USED                                    0.75000    
+    NET WORK REQUIRED  KW                                 877.303      
+    HEAD DEVELOPED M-KGF/KG                               104.255      
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                     877.3032  KW              
+  COST                                     29.8283  $/HR            
+  CO2 EQUIVALENT EMISSIONS                273.8456  KG/HR           
+
+ BLOCK:  P-2      MODEL: PUMP            
+ ----------------------------
+   INLET STREAM:          S27     
+   OUTLET STREAM:         RECYCLE 
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10669.5         10669.5         0.00000    
+       MASS(KG/HR   )           0.219000E+07    0.219000E+07     0.00000    
+       ENTHALPY(CAL/SEC )       0.169947E+09    0.169965E+09   -0.103951E-03
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             2.63788      KG/HR           
+    PRODUCT STREAMS CO2E          2.63788      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     24.3054      KG/HR           
+    TOTAL CO2E PRODUCTION         24.3054      KG/HR           
+
+                          ***  INPUT DATA  ***
+    OUTLET PRESSURE  BAR                                    1.01325    
+    PUMP EFFICIENCY                                         0.75000    
+    DRIVER EFFICIENCY                                       0.95000    
+
+    FLASH SPECIFICATIONS:
+    LIQUID PHASE CALCULATION
+    NO FLASH PERFORMED
+    MAXIMUM NUMBER OF ITERATIONS                            30
+    TOLERANCE                                               0.000100000
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 49      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  P-2      MODEL: PUMP (CONTINUED)            
+
+                           ***  RESULTS  ***
+    VOLUMETRIC FLOW RATE  L/MIN                        34,581.4        
+    PRESSURE CHANGE  BAR                                    0.96259    
+    NPSH AVAILABLE   M-KGF/KG                               0.45908    
+    FLUID POWER  KW                                        55.4794     
+    BRAKE POWER  KW                                        73.9725     
+    ELECTRICITY  KW                                        77.8658     
+    PUMP EFFICIENCY USED                                    0.75000    
+    NET WORK REQUIRED  KW                                  77.8658     
+    HEAD DEVELOPED M-KGF/KG                                 9.29970    
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                      77.8658  KW              
+  COST                                      2.6474  $/HR            
+  CO2 EQUIVALENT EMISSIONS                 24.3054  KG/HR           
+
+ BLOCK:  P-3      MODEL: PUMP            
+ ----------------------------
+   INLET STREAM:          S26     
+   OUTLET STREAM:         SORBLOSS
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            53.6154         53.6154         0.00000    
+       MASS(KG/HR   )            11005.0         11005.0         0.00000    
+       ENTHALPY(CAL/SEC )        854007.         854096.       -0.103951E-03
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E            0.132557E-01  KG/HR           
+    PRODUCT STREAMS CO2E         0.132557E-01  KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION    0.122138      KG/HR           
+    TOTAL CO2E PRODUCTION        0.122138      KG/HR           
+
+                          ***  INPUT DATA  ***
+    OUTLET PRESSURE  BAR                                    1.01325    
+    PUMP EFFICIENCY                                         0.75000    
+    DRIVER EFFICIENCY                                       0.95000    
+
+    FLASH SPECIFICATIONS:
+    LIQUID PHASE CALCULATION
+    NO FLASH PERFORMED
+    MAXIMUM NUMBER OF ITERATIONS                            30
+    TOLERANCE                                               0.000100000
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 50      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  P-3      MODEL: PUMP (CONTINUED)            
+
+                           ***  RESULTS  ***
+    VOLUMETRIC FLOW RATE  L/MIN                           173.776      
+    PRESSURE CHANGE  BAR                                    0.96259    
+    NPSH AVAILABLE   M-KGF/KG                               0.45908    
+    FLUID POWER  KW                                         0.27879    
+    BRAKE POWER  KW                                         0.37172    
+    ELECTRICITY  KW                                         0.39129    
+    PUMP EFFICIENCY USED                                    0.75000    
+    NET WORK REQUIRED  KW                                   0.39129    
+    HEAD DEVELOPED M-KGF/KG                                 9.29970    
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                       0.3913  KW              
+  COST                                   1.3304-02  $/HR            
+  CO2 EQUIVALENT EMISSIONS                  0.1221  KG/HR           
+
+ BLOCK:  P-4      MODEL: PUMP            
+ ----------------------------
+   INLET STREAM:          S37     
+   OUTLET STREAM:         S38     
+   PROPERTY OPTION SET:   PSRK      RKS-MHV1 EQUATION OF STATE                  
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )           0.396692        0.396692         0.00000    
+       MASS(KG/HR   )            17.3450         17.3450         0.00000    
+       ENTHALPY(CAL/SEC )       -10522.8        -10518.5       -0.414645E-03
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             17.0795      KG/HR           
+    PRODUCT STREAMS CO2E          17.0795      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION    0.600238E-02  KG/HR           
+    TOTAL CO2E PRODUCTION        0.600238E-02  KG/HR           
+
+                          ***  INPUT DATA  ***
+    OUTLET PRESSURE  BAR                                   60.7950     
+    PUMP EFFICIENCY                                         0.75000    
+    DRIVER EFFICIENCY                                       0.95000    
+
+    FLASH SPECIFICATIONS:
+    LIQUID PHASE CALCULATION
+    NO FLASH PERFORMED
+    MAXIMUM NUMBER OF ITERATIONS                            30
+    TOLERANCE                                               0.000100000
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 51      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  P-4      MODEL: PUMP (CONTINUED)            
+
+                           ***  RESULTS  ***
+    VOLUMETRIC FLOW RATE  L/MIN                             0.32452    
+    PRESSURE CHANGE  BAR                                   25.3313     
+    NPSH AVAILABLE   M-KGF/KG                               0.0        
+    FLUID POWER  KW                                         0.013701   
+    BRAKE POWER  KW                                         0.018268   
+    ELECTRICITY  KW                                         0.019229   
+    PUMP EFFICIENCY USED                                    0.75000    
+    NET WORK REQUIRED  KW                                   0.019229   
+    HEAD DEVELOPED M-KGF/KG                               289.975      
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                    1.9229-02  KW              
+  COST                                   6.5380-04  $/HR            
+  CO2 EQUIVALENT EMISSIONS               6.0024-03  KG/HR           
+
+ BLOCK:  P-PROD   MODEL: PUMP            
+ ----------------------------
+   INLET STREAM:          S44     
+   OUTLET STREAM:         CO2PROD 
+   PROPERTY OPTION SET:   PSRK      RKS-MHV1 EQUATION OF STATE                  
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )           0.959149        0.959149         0.00000    
+       MASS(KG/HR   )            41.3201         41.3201         0.00000    
+       ENTHALPY(CAL/SEC )       -24515.5        -24501.4       -0.573959E-03
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             39.2321      KG/HR           
+    PRODUCT STREAMS CO2E          39.2321      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION    0.193569E-01  KG/HR           
+    TOTAL CO2E PRODUCTION        0.193569E-01  KG/HR           
+
+                          ***  INPUT DATA  ***
+    OUTLET PRESSURE  BAR                                  101.325      
+    PUMP EFFICIENCY                                         0.75000    
+    DRIVER EFFICIENCY                                       0.95000    
+
+    FLASH SPECIFICATIONS:
+    LIQUID PHASE CALCULATION
+    NO FLASH PERFORMED
+    MAXIMUM NUMBER OF ITERATIONS                            30
+    TOLERANCE                                               0.000100000
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 52      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  P-PROD   MODEL: PUMP (CONTINUED)            
+
+                           ***  RESULTS  ***
+    VOLUMETRIC FLOW RATE  L/MIN                             0.65409    
+    PRESSURE CHANGE  BAR                                   40.5300     
+    NPSH AVAILABLE   M-KGF/KG                             139.707      
+    FLUID POWER  KW                                         0.044184   
+    BRAKE POWER  KW                                         0.058912   
+    ELECTRICITY  KW                                         0.062013   
+    PUMP EFFICIENCY USED                                    0.75000    
+    NET WORK REQUIRED  KW                                   0.062013   
+    HEAD DEVELOPED M-KGF/KG                               392.542      
+
+                       ***  ASSOCIATED  UTILITIES  ***
+
+  UTILITY ID FOR ELECTRICITY                  ELEC
+  RATE OF CONSUMPTION                    6.2013-02  KW              
+  COST                                   2.1084-03  $/HR            
+  CO2 EQUIVALENT EMISSIONS               1.9357-02  KG/HR           
+
+ BLOCK:  S-1      MODEL: FSPLIT          
+ ------------------------------
+   INLET STREAM:          STRIP   
+   OUTLET STREAMS:        S26         S27     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10723.1         10723.1         0.00000    
+       MASS(KG/HR   )           0.220101E+07    0.220101E+07     0.00000    
+       ENTHALPY(CAL/SEC )       0.170801E+09    0.170801E+09     0.00000    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             2.65113      KG/HR           
+    PRODUCT STREAMS CO2E          2.65113      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+
+  FRACTION OF FLOW                 STRM=S26      FRAC=         0.0050000  
+
+                           ***  RESULTS  ***
+
+  STREAM= S26            SPLIT=          0.0050000   KEY=  0    STREAM-ORDER=   1
+          S27                            0.99500           0                    2
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 53      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  V-1      MODEL: VALVE           
+ -----------------------------
+   INLET STREAM:          S23     
+   OUTLET STREAM:         S24     
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )            10728.9         10728.9         0.00000    
+       MASS(KG/HR   )           0.220120E+07    0.220120E+07     0.00000    
+       ENTHALPY(CAL/SEC )       0.170789E+09    0.170789E+09     0.00000    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E             52.5033      KG/HR           
+    PRODUCT STREAMS CO2E          52.5033      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+
+    VALVE OUTLET PRESSURE     BAR                           0.050662   
+    VALVE FLOW COEF CALC.                                 NO  
+
+                          FLASH SPECIFICATIONS:
+    NPHASE                                                  2
+    MAX NUMBER OF ITERATIONS                               30
+    CONVERGENCE TOLERANCE                                   0.000100000
+
+                          ***  RESULTS  ***
+
+    VALVE PRESSURE DROP       BAR                           0.96259    
+
+ BLOCK:  V-2      MODEL: VALVE           
+ -----------------------------
+   INLET STREAM:          S46     
+   OUTLET STREAM:         VENT-6  
+   PROPERTY OPTION SET:   COSMOSAC  / IDEAL GAS                                 
+   HENRY-COMPS ID:        HC-1    
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 54      
+                                                                                
+                              U-O-S BLOCK SECTION                               
+
+ BLOCK:  V-2      MODEL: VALVE (CONTINUED)           
+
+                      ***  MASS AND ENERGY BALANCE  ***
+                                    IN              OUT        RELATIVE DIFF.
+    TOTAL BALANCE
+       MOLE(KMOL/HR )           0.166547        0.166547         0.00000    
+       MASS(KG/HR   )            5.34390         5.34390         0.00000    
+       ENTHALPY(CAL/SEC )       -521.597        -521.597         0.00000    
+
+                      ***  CO2 EQUIVALENT SUMMARY ***
+    FEED STREAMS CO2E            0.877002      KG/HR           
+    PRODUCT STREAMS CO2E         0.877002      KG/HR           
+    NET STREAMS CO2E PRODUCTION   0.00000      KG/HR           
+    UTILITIES CO2E PRODUCTION     0.00000      KG/HR           
+    TOTAL CO2E PRODUCTION         0.00000      KG/HR           
+
+                          ***  INPUT DATA  ***
+
+    VALVE OUTLET PRESSURE     BAR                           1.01325    
+    VALVE FLOW COEF CALC.                                 NO  
+
+                          FLASH SPECIFICATIONS:
+    PHASE                                                 VAPOR   
+    MAX NUMBER OF ITERATIONS                               30
+    CONVERGENCE TOLERANCE                                   0.000100000
+
+                          ***  RESULTS  ***
+
+    VALVE PRESSURE DROP       BAR                          58.9868     
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 55      
+                                                                                
+                                 STREAM SECTION                                 
+
+ CO2PROD DESORBED FEEDAIR FEEDSORB LEANAIR       
+ -----------------------------------------
+
+ STREAM ID               CO2PROD    DESORBED   FEEDAIR    FEEDSORB   LEANAIR 
+ FROM :                  P-PROD     DESORB     ----       M-1        ABSORB  
+ TO   :                  ----       COMP-6     COMP-1     HX-5       B1      
+
+ SUBSTREAM: MIXED   
+ PHASE:                  LIQUID     VAPOR      VAPOR      LIQUID     VAPOR  
+ COMPONENTS: KMOL/HR         
+   N2                  1.9728-02  7.6122-02  4580.5169  5.0063-03  4566.7753
+   O2                  4.7982-02     0.1382  1218.2226  9.0895-03  1206.0403
+   CO2                    0.8914     0.9114     2.3204  5.9938-02     1.1486
+   H2O                    0.0        0.0        0.0        0.0        0.0   
+   SORBENT                0.0        0.0        0.0     1.0723+04     0.0   
+   R23                    0.0        0.0        0.0        0.0        0.0   
+   R1150                  0.0        0.0        0.0        0.0        0.0   
+   R134A                  0.0        0.0        0.0        0.0        0.0   
+   R290                   0.0        0.0        0.0        0.0        0.0   
+ TOTAL FLOW:         
+   KMOL/HR                0.9591     1.1257  5801.0599  1.0723+04  5773.9643
+   KG/HR                 41.3201    46.6640  1.6740+05  2.2010+06  1.6657+05
+   L/MIN                  0.6491  9180.0528  2.4051+06  3.4757+04  2.3543+05
+ STATE VARIABLES:    
+   TEMP   C             -49.6536    25.0000    30.0000    25.0575    25.0000
+   PRES   BAR           101.3250  5.0663-02     1.0133     1.0133    10.1325
+   VFRAC                  0.0        1.0000     1.0000     0.0        1.0000
+   LFRAC                  1.0000     0.0        0.0        1.0000     0.0   
+   SFRAC                  0.0        0.0        0.0        0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL            -9.1962+04 -7.6093+04    -2.7486  5.7348+04   -18.6970
+   CAL/GM             -2134.6782 -1835.6301 -9.5251-02   279.3943    -0.6481
+   CAL/SEC            -2.4501+04 -2.3794+04 -4429.1881  1.7082+08 -2.9988+04
+ ENTROPY:            
+   CAL/MOL-K            -23.5001     7.7195     1.1436   787.4075    -3.5511
+   CAL/GM-K              -0.5455     0.1862  3.9632-02     3.8362    -0.1231
+ DENSITY:            
+   MOL/CC              2.4627-02  2.0437-06  4.0201-05  5.1420-03  4.0875-04
+   GM/CC                  1.0609  8.4720-05  1.1601-03     1.0554  1.1792-02
+ AVG MW                  43.0799    41.4535    28.8568   205.2589    28.8491
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 56      
+                                                                                
+                                 STREAM SECTION                                 
+
+ LEANSORB MAKEUP RECYCLE RICHAIR RICHSORB        
+ ----------------------------------------
+
+ STREAM ID               LEANSORB   MAKEUP     RECYCLE    RICHAIR    RICHSORB
+ FROM :                  P-1        ----       P-2        HX-3       ABSORB  
+ TO   :                  ABSORB     M-1        M-1        ABSORB     B4      
+
+
+ CONV. MAX. REL. ERR:  5.3259-06     0.0        0.0        0.0        0.0   
+ SUBSTREAM: MIXED   
+ PHASE:                  LIQUID     LIQUID     LIQUID     VAPOR      LIQUID 
+ COMPONENTS: KMOL/HR         
+   N2                  5.0063-03     0.0     5.0063-03  4580.5169    13.7466
+   O2                  9.0895-03     0.0     9.0895-03  1218.2226    12.1913
+   CO2                 5.9938-02     0.0     5.9938-02     2.3204     1.2318
+   H2O                    0.0        0.0        0.0        0.0        0.0   
+   SORBENT             1.0723+04    53.6150  1.0669+04     0.0     1.0723+04
+   R23                    0.0        0.0        0.0        0.0        0.0   
+   R1150                  0.0        0.0        0.0        0.0        0.0   
+   R134A                  0.0        0.0        0.0        0.0        0.0   
+   R290                   0.0        0.0        0.0        0.0        0.0   
+ TOTAL FLOW:         
+   KMOL/HR             1.0723+04    53.6150  1.0669+04  5801.0599  1.0750+04
+   KG/HR               2.2010+06  1.1005+04  2.1900+06  1.6740+05  2.2018+06
+   L/MIN               3.4771+04   173.7742  3.4583+04  2.3654+05  3.4894+04
+ STATE VARIABLES:    
+   TEMP   C              25.6476    25.0000    25.0578    25.0000    25.0000
+   PRES   BAR            11.8044     1.0133     1.0133    10.1325    10.1325
+   VFRAC                  0.0        0.0        0.0        1.0000     0.0   
+   LFRAC                  1.0000     1.0000     1.0000     0.0        1.0000
+   SFRAC                  0.0        0.0        0.0        0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL             5.7409+04  5.7343+04  5.7348+04   -37.5953  5.7193+04
+   CAL/GM               279.6910   279.3684   279.3944    -1.3028   279.2383
+   CAL/SEC             1.7100+08  8.5402+05  1.6997+08 -6.0581+04  1.7079+08
+ ENTROPY:            
+   CAL/MOL-K            787.5837   787.3957   787.4076    -3.5448   785.4262
+   CAL/GM-K               3.8370     3.8361     3.8362    -0.1228     3.8347
+ DENSITY:            
+   MOL/CC              5.1399-03  5.1422-03  5.1420-03  4.0875-04  5.1347-03
+   GM/CC                  1.0550     1.0555     1.0554  1.1795-02     1.0517
+ AVG MW                 205.2589   205.2600   205.2589    28.8568   204.8184
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 57      
+                                                                                
+                                 STREAM SECTION                                 
+
+ S1 S16 S17 S18 S19                              
+ ------------------
+
+ STREAM ID               S1         S16        S17        S18        S19     
+ FROM :                  COMP-1     B4         FLASH-2    FLASH-2    B6      
+ TO   :                  HX-1       FLASH-2    B5         B6         FLASH-3 
+
+ SUBSTREAM: MIXED   
+ PHASE:                  VAPOR      LIQUID     MISSING    LIQUID     MIXED  
+ COMPONENTS: KMOL/HR         
+   N2                  4580.5169    13.7466     0.0       13.7466    13.7466
+   O2                  1218.2226    12.1913     0.0       12.1913    12.1913
+   CO2                    2.3204     1.2318     0.0        1.2318     1.2318
+   H2O                    0.0        0.0        0.0        0.0        0.0   
+   SORBENT                0.0     1.0723+04     0.0     1.0723+04  1.0723+04
+   R23                    0.0        0.0        0.0        0.0        0.0   
+   R1150                  0.0        0.0        0.0        0.0        0.0   
+   R134A                  0.0        0.0        0.0        0.0        0.0   
+   R290                   0.0        0.0        0.0        0.0        0.0   
+ TOTAL FLOW:         
+   KMOL/HR             5801.0599  1.0750+04     0.0     1.0750+04  1.0750+04
+   KG/HR               1.6740+05  2.2018+06     0.0     2.2018+06  2.2018+06
+   L/MIN               1.1918+06  3.4894+04     0.0     3.4894+04  3.6493+04
+ STATE VARIABLES:    
+   TEMP   C             177.5305    25.0001    MISSING    25.0002    25.0255
+   PRES   BAR             3.0398     6.0795     6.0795     6.0795     3.0398
+   VFRAC                  1.0000     0.0       MISSING     0.0     1.1373-03
+   LFRAC                  0.0        1.0000    MISSING     1.0000     0.9989
+   SFRAC                  0.0        0.0       MISSING     0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL             1032.2657  5.7193+04    MISSING  5.7193+04  5.7193+04
+   CAL/GM                35.7720   279.2383    MISSING   279.2384   279.2384
+   CAL/SEC             1.6634+06  1.7079+08    MISSING  1.7079+08  1.7079+08
+ ENTROPY:            
+   CAL/MOL-K              1.7424   785.4262    MISSING   785.4262   785.4258
+   CAL/GM-K            6.0383-02     3.8347    MISSING     3.8347     3.8347
+ DENSITY:            
+   MOL/CC              8.1123-05  5.1347-03    MISSING  5.1347-03  4.9096-03
+   GM/CC               2.3409-03     1.0517    MISSING     1.0517     1.0056
+ AVG MW                  28.8568   204.8184    MISSING   204.8184   204.8184
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 58      
+                                                                                
+                                 STREAM SECTION                                 
+
+ S2 S20 S21 S22 S23                              
+ ------------------
+
+ STREAM ID               S2         S20        S21        S22        S23     
+ FROM :                  HX-1       FLASH-3    FLASH-3    B8         FLASH-4 
+ TO   :                  COMP-2     B7         B8         FLASH-4    V-1     
+
+ SUBSTREAM: MIXED   
+ PHASE:                  VAPOR      VAPOR      LIQUID     MIXED      LIQUID 
+ COMPONENTS: KMOL/HR         
+   N2                  4580.5169     7.0254     6.7212     6.7212     2.0166
+   O2                  1218.2226     5.1908     7.0005     7.0005     2.6378
+   CO2                    2.3204  1.2175-02     1.2196     1.2196     1.1930
+   H2O                    0.0        0.0        0.0        0.0        0.0   
+   SORBENT                0.0     4.2474-14  1.0723+04  1.0723+04  1.0723+04
+   R23                    0.0        0.0        0.0        0.0        0.0   
+   R1150                  0.0        0.0        0.0        0.0        0.0   
+   R134A                  0.0        0.0        0.0        0.0        0.0   
+   R290                   0.0        0.0        0.0        0.0        0.0   
+ TOTAL FLOW:         
+   KMOL/HR             5801.0599    12.2284  1.0738+04  1.0738+04  1.0729+04
+   KG/HR               1.6740+05   363.4408  2.2015+06  2.2015+06  2.2012+06
+   L/MIN               7.8846+05  1662.1818  3.4831+04  3.8494+04  3.4785+04
+ STATE VARIABLES:    
+   TEMP   C              25.0000    25.0255    25.0255    25.0464    25.0464
+   PRES   BAR             3.0398     3.0398     3.0398     1.0133     1.0133
+   VFRAC                  1.0000     1.0000     0.0     8.4686-04     0.0   
+   LFRAC                  0.0        0.0        1.0000     0.9992     1.0000
+   SFRAC                  0.0        0.0        0.0        0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL              -37.5953   -93.3990  5.7258+04  5.7258+04  5.7307+04
+   CAL/GM                -1.3028    -3.1425   279.2850   279.2850   279.3207
+   CAL/SEC            -6.0581+04  -317.2549  1.7079+08  1.7079+08  1.7079+08
+ ENTROPY:            
+   CAL/MOL-K             -1.1539    -0.8121   786.3212   786.3213   786.9866
+   CAL/GM-K           -3.9988-02 -2.7324-02     3.8354     3.8354     3.8358
+ DENSITY:            
+   MOL/CC              1.2262-04  1.2261-04  5.1381-03  4.6492-03  5.1405-03
+   GM/CC               3.5385-03  3.6442-03     1.0534     0.9532     1.0547
+ AVG MW                  28.8568    29.7211   205.0178   205.0178   205.1662
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 59      
+                                                                                
+                                 STREAM SECTION                                 
+
+ S24 S25 S26 S27 S28                             
+ -------------------
+
+ STREAM ID               S24        S25        S26        S27        S28     
+ FROM :                  V-1        FLASH-5    S-1        S-1        COMP-6  
+ TO   :                  FLASH-5    COMP-5     P-3        P-2        HX-8    
+
+ SUBSTREAM: MIXED   
+ PHASE:                  MIXED      VAPOR      LIQUID     LIQUID     VAPOR  
+ COMPONENTS: KMOL/HR         
+   N2                     2.0166     1.9354  2.5157-05  5.0063-03  7.6122-02
+   O2                     2.6378     2.4904  4.5676-05  9.0895-03     0.1382
+   CO2                    1.1930     0.2214  3.0120-04  5.9938-02     0.9114
+   H2O                    0.0        0.0        0.0        0.0        0.0   
+   SORBENT             1.0723+04  9.7568-13    53.6150  1.0669+04     0.0   
+   R23                    0.0        0.0        0.0        0.0        0.0   
+   R1150                  0.0        0.0        0.0        0.0        0.0   
+   R134A                  0.0        0.0        0.0        0.0        0.0   
+   R290                   0.0        0.0        0.0        0.0        0.0   
+ TOTAL FLOW:         
+   KMOL/HR             1.0729+04     4.6472    53.6154  1.0669+04     1.1257
+   KG/HR               2.2012+06   143.6513  1.1005+04  2.1900+06    46.6640
+   L/MIN               7.2667+04  3.7905+04   173.7759  3.4581+04  1288.7852
+ STATE VARIABLES:    
+   TEMP   C              25.0575    25.0575    25.0000    25.0000   563.9940
+   PRES   BAR          5.0663-02  5.0663-02  5.0663-02  5.0663-02     1.0133
+   VFRAC               4.3315-04     1.0000     0.0        0.0        1.0000
+   LFRAC                  0.9996     0.0        1.0000     1.0000     0.0   
+   SFRAC                  0.0        0.0        0.0        0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL             5.7307+04 -4476.9932  5.7342+04  5.7342+04 -7.0551+04
+   CAL/GM               279.3207  -144.8339   279.3654   279.3654 -1701.9252
+   CAL/SEC             1.7079+08 -5779.3278  8.5401+05  1.6995+08 -2.2061+04
+ ENTROPY:            
+   CAL/MOL-K            786.9878     7.6595   787.3903   787.3903    12.1286
+   CAL/GM-K               3.8359     0.2478     3.8361     3.8361     0.2926
+ DENSITY:            
+   MOL/CC              2.4607-03  2.0433-06  5.1422-03  5.1422-03  1.4558-05
+   GM/CC                  0.5049  6.3162-05     1.0555     1.0555  6.0346-04
+ AVG MW                 205.1662    30.9112   205.2589   205.2589    41.4535
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 60      
+                                                                                
+                                 STREAM SECTION                                 
+
+ S29 S3 S30 S31 S32                              
+ ------------------
+
+ STREAM ID               S29        S3         S30        S31        S32     
+ FROM :                  HX-8       COMP-2     COMP-7     HX-9       COMP-8  
+ TO   :                  COMP-7     HX-2       HX-9       COMP-8     HX-10   
+
+ SUBSTREAM: MIXED   
+ PHASE:                  VAPOR      VAPOR      VAPOR      VAPOR      VAPOR  
+ COMPONENTS: KMOL/HR         
+   N2                  7.6122-02  4580.5169  7.6122-02  7.6122-02  7.6122-02
+   O2                     0.1382  1218.2226     0.1382     0.1382     0.1382
+   CO2                    0.9114     2.3204     0.9114     0.9114     0.9114
+   H2O                    0.0        0.0        0.0        0.0        0.0   
+   SORBENT                0.0        0.0        0.0        0.0        0.0   
+   R23                    0.0        0.0        0.0        0.0        0.0   
+   R1150                  0.0        0.0        0.0        0.0        0.0   
+   R134A                  0.0        0.0        0.0        0.0        0.0   
+   R290                   0.0        0.0        0.0        0.0        0.0   
+ TOTAL FLOW:         
+   KMOL/HR                1.1257  5801.0599     1.1257     1.1257     1.1257
+   KG/HR                 46.6640  1.6740+05    46.6640    46.6640    46.6640
+   L/MIN                459.0026  5.0867+05   208.9764   153.0009    93.6911
+ STATE VARIABLES:    
+   TEMP   C              25.0000   111.5482   134.0785    25.0000    91.9981
+   PRES   BAR             1.0133     6.0795     3.0398     3.0398     6.0795
+   VFRAC                  1.0000     1.0000     1.0000     1.0000     1.0000
+   LFRAC                  0.0        0.0        0.0        0.0        0.0   
+   SFRAC                  0.0        0.0        0.0        0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL            -7.6093+04   567.3109 -7.5109+04 -7.6093+04 -7.5500+04
+   CAL/GM             -1835.6301    19.6595 -1811.8816 -1835.6301 -1821.3274
+   CAL/SEC            -2.3794+04  9.1417+05 -2.3486+04 -2.3794+04 -2.3608+04
+ ENTROPY:            
+   CAL/MOL-K              1.7705    -0.7494     2.3951    -0.4112  4.0466-03
+   CAL/GM-K            4.2710-02 -2.5969-02  5.7779-02 -9.9199-03  9.7619-05
+ DENSITY:            
+   MOL/CC              4.0875-05  1.9007-04  8.9779-05  1.2262-04  2.0025-04
+   GM/CC               1.6944-03  5.4849-03  3.7216-03  5.0832-03  8.3010-03
+ AVG MW                  41.4535    28.8568    41.4535    41.4535    41.4535
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 61      
+                                                                                
+                                 STREAM SECTION                                 
+
+ S33 S34 S35 S36 S37                             
+ -------------------
+
+ STREAM ID               S33        S34        S35        S36        S37     
+ FROM :                  HX-10      COMP-9     COMP-10    HX-12      FLASH-6 
+ TO   :                  COMP-9     HX-11      HX-12      FLASH-6    P-4     
+
+ SUBSTREAM: MIXED   
+ PHASE:                  VAPOR      VAPOR      VAPOR      MIXED      LIQUID 
+ COMPONENTS: KMOL/HR         
+   N2                  7.6122-02  7.6122-02  7.6122-02  7.6122-02  2.5010-03
+   O2                     0.1382     0.1382     0.1382     0.1382  6.1069-03
+   CO2                    0.9114     0.9114     0.9114     0.9114     0.3881
+   H2O                    0.0        0.0        0.0        0.0        0.0   
+   SORBENT                0.0        0.0        0.0        0.0        0.0   
+   R23                    0.0        0.0        0.0        0.0        0.0   
+   R1150                  0.0        0.0        0.0        0.0        0.0   
+   R134A                  0.0        0.0        0.0        0.0        0.0   
+   R290                   0.0        0.0        0.0        0.0        0.0   
+ TOTAL FLOW:         
+   KMOL/HR                1.1257     1.1257     1.1257     1.1257     0.3967
+   KG/HR                 46.6640    46.6640    46.6640    46.6640    17.3450
+   L/MIN                 76.5004    51.8628    18.7938     6.1354     0.3245
+ STATE VARIABLES:    
+   TEMP   C              25.0000    63.7300   163.6303   -15.0000   -14.9999
+   PRES   BAR             6.0795    10.1325    35.4637    35.4637    35.4637
+   VFRAC                  1.0000     1.0000     1.0000     0.6476     0.0   
+   LFRAC                  0.0        0.0        0.0        0.3524     1.0000
+   SFRAC                  0.0        0.0        0.0        0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL            -7.6093+04 -7.5755+04 -7.4952+04 -7.7793+04 -9.5495+04
+   CAL/GM             -1835.6301 -1827.4816 -1808.0995 -1876.6237 -2184.0421
+   CAL/SEC            -2.3794+04 -2.3688+04 -2.3437+04 -2.4325+04 -1.0523+04
+ ENTROPY:            
+   CAL/MOL-K             -1.7877    -1.7374    -2.0567   -11.2865   -18.7345
+   CAL/GM-K           -4.3125-02 -4.1913-02 -4.9615-02    -0.2723    -0.4285
+ DENSITY:            
+   MOL/CC              2.4525-04  3.6175-04  9.9829-04  3.0579-03  2.0373-02
+   GM/CC               1.0166-02  1.4996-02  4.1383-02     0.1268     0.8908
+ AVG MW                  41.4535    41.4535    41.4535    41.4535    43.7240
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 62      
+                                                                                
+                                 STREAM SECTION                                 
+
+ S38 S39 S4 S40 S41                              
+ ------------------
+
+ STREAM ID               S38        S39        S4         S40        S41     
+ FROM :                  P-4        HX-13      HX-2       FLASH-6    COMP-11 
+ TO   :                  HX-13      M-2        COMP-3     COMP-11    HX-14   
+
+ SUBSTREAM: MIXED   
+ PHASE:                  LIQUID     LIQUID     VAPOR      VAPOR      VAPOR  
+ COMPONENTS: KMOL/HR         
+   N2                  2.5010-03  2.5010-03  4580.5169  7.3621-02  7.3621-02
+   O2                  6.1069-03  6.1069-03  1218.2226     0.1321     0.1321
+   CO2                    0.3881     0.3881     2.3204     0.5233     0.5233
+   H2O                    0.0        0.0        0.0        0.0        0.0   
+   SORBENT                0.0        0.0        0.0        0.0        0.0   
+   R23                    0.0        0.0        0.0        0.0        0.0   
+   R1150                  0.0        0.0        0.0        0.0        0.0   
+   R134A                  0.0        0.0        0.0        0.0        0.0   
+   R290                   0.0        0.0        0.0        0.0        0.0   
+ TOTAL FLOW:         
+   KMOL/HR                0.3967     0.3967  5801.0599     0.7290     0.7290
+   KG/HR                 17.3450    17.3450  1.6740+05    29.3190    29.3190
+   L/MIN                  0.3213     0.2470  3.9423+05     5.8109     4.1599
+ STATE VARIABLES:    
+   TEMP   C             -13.0278   -60.0000    25.0000   -14.9999    33.0335
+   PRES   BAR            60.7950    60.7950     6.0795    35.4637    60.7950
+   VFRAC                  0.0        0.0        1.0000     1.0000     1.0000
+   LFRAC                  1.0000     1.0000     0.0        0.0        0.0   
+   SFRAC                  0.0        0.0        0.0        0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL            -9.5456+04 -9.6255+04   -37.5953 -6.8160+04 -6.7845+04
+   CAL/GM             -2183.1365 -2201.4175    -1.3028 -1694.7564 -1686.9460
+   CAL/SEC            -1.0518+04 -1.0607+04 -6.0581+04 -1.3802+04 -1.3739+04
+ ENTROPY:            
+   CAL/MOL-K            -18.6958   -21.9118    -2.5304    -7.2336    -6.9743
+   CAL/GM-K              -0.4276    -0.5011 -8.7689-02    -0.1799    -0.1734
+ DENSITY:            
+   MOL/CC              2.0575-02  2.6771-02  2.4525-04  2.0909-03  2.9207-03
+   GM/CC                  0.8996     1.1705  7.0771-03  8.4092-02     0.1175
+ AVG MW                  43.7240    43.7240    28.8568    40.2179    40.2179
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 63      
+                                                                                
+                                 STREAM SECTION                                 
+
+ S42 S43 S44 S45 S46                             
+ -------------------
+
+ STREAM ID               S42        S43        S44        S45        S46     
+ FROM :                  HX-14      FLASH-7    M-2        FLASH-7    HX-15   
+ TO   :                  FLASH-7    M-2        P-PROD     HX-15      V-2     
+
+ SUBSTREAM: MIXED   
+ PHASE:                  MIXED      LIQUID     LIQUID     VAPOR      VAPOR  
+ COMPONENTS: KMOL/HR         
+   N2                  7.3621-02  1.7227-02  1.9728-02  5.6394-02  5.6394-02
+   O2                     0.1321  4.1875-02  4.7982-02  9.0225-02  9.0225-02
+   CO2                    0.5233     0.5034     0.8914  1.9927-02  1.9927-02
+   H2O                    0.0        0.0        0.0        0.0        0.0   
+   SORBENT                0.0        0.0        0.0        0.0        0.0   
+   R23                    0.0        0.0        0.0        0.0        0.0   
+   R1150                  0.0        0.0        0.0        0.0        0.0   
+   R134A                  0.0        0.0        0.0        0.0        0.0   
+   R290                   0.0        0.0        0.0        0.0        0.0   
+ TOTAL FLOW:         
+   KMOL/HR                0.7290     0.5625     0.9591     0.1665     0.1665
+   KG/HR                 29.3190    23.9751    41.3201     5.3439     5.3439
+   L/MIN                  1.0416     0.3722     0.6541     0.6694     1.1314
+ STATE VARIABLES:    
+   TEMP   C             -60.0000   -59.9993   -50.8166   -59.9993    21.0000
+   PRES   BAR            60.7950    60.7950    60.7950    60.7950    60.0000
+   VFRAC                  0.2285     0.0        0.0        1.0000     1.0000
+   LFRAC                  0.7715     1.0000     1.0000     0.0        0.0   
+   SFRAC                  0.0        0.0        0.0        0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL            -7.1468+04 -8.9024+04 -9.2015+04 -1.2180+04 -1.1275+04
+   CAL/GM             -1777.0296 -2088.5079 -2135.9041  -379.5963  -351.3819
+   CAL/SEC            -1.4472+04 -1.3909+04 -2.4515+04  -563.4792  -521.5972
+ ENTROPY:            
+   CAL/MOL-K            -21.3950   -24.8468   -23.5600    -9.7373    -6.2275
+   CAL/GM-K              -0.5320    -0.5829    -0.5469    -0.3035    -0.1941
+ DENSITY:            
+   MOL/CC              1.1665-02  2.5186-02  2.4440-02  4.1468-03  2.4533-03
+   GM/CC                  0.4691     1.0736     1.0529     0.1331  7.8719-02
+ AVG MW                  40.2179    42.6257    43.0799    32.0865    32.0865
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 64      
+                                                                                
+                                 STREAM SECTION                                 
+
+ S5 S8 SORBLOSS STRIP TOPURE                     
+ ---------------------------
+
+ STREAM ID               S5         S8         SORBLOSS   STRIP      TOPURE  
+ FROM :                  COMP-3     HX-5       P-3        DESORB     HX-11   
+ TO   :                  HX-3       P-1        ----       S-1        COMP-10 
+
+ SUBSTREAM: MIXED   
+ PHASE:                  VAPOR      LIQUID     LIQUID     LIQUID     VAPOR  
+ COMPONENTS: KMOL/HR         
+   N2                  4580.5169  5.0063-03  2.5157-05  5.0315-03  7.6122-02
+   O2                  1218.2226  9.0895-03  4.5676-05  9.1352-03     0.1382
+   CO2                    2.3204  5.9938-02  3.0120-04  6.0240-02     0.9114
+   H2O                    0.0        0.0        0.0        0.0        0.0   
+   SORBENT                0.0     1.0723+04    53.6150  1.0723+04     0.0   
+   R23                    0.0        0.0        0.0        0.0        0.0   
+   R1150                  0.0        0.0        0.0        0.0        0.0   
+   R134A                  0.0        0.0        0.0        0.0        0.0   
+   R290                   0.0        0.0        0.0        0.0        0.0   
+ TOTAL FLOW:         
+   KMOL/HR             5801.0599  1.0723+04    53.6154  1.0723+04     1.1257
+   KG/HR               1.6740+05  2.2010+06  1.1005+04  2.2010+06    46.6640
+   L/MIN               2.8586+05  3.4755+04   173.7828  3.4755+04    45.9003
+ STATE VARIABLES:    
+   TEMP   C              87.1690    25.0000    25.0578    25.0000    25.0000
+   PRES   BAR            10.1325     1.0133     1.0133  5.0663-02    10.1325
+   VFRAC                  1.0000     0.0        0.0        0.0        1.0000
+   LFRAC                  0.0        1.0000     1.0000     1.0000     0.0   
+   SFRAC                  0.0        0.0        0.0        0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL              396.4728  5.7342+04  5.7348+04  5.7342+04 -7.6093+04
+   CAL/GM                13.7393   279.3654   279.3944   279.3654 -1835.6301
+   CAL/SEC             6.3888+05  1.7080+08  8.5410+05  1.7080+08 -2.3794+04
+ ENTROPY:            
+   CAL/MOL-K             -2.2226   787.3904   787.4076   787.3903    -2.8021
+   CAL/GM-K           -7.7021-02     3.8361     3.8362     3.8361 -6.7597-02
+ DENSITY:            
+   MOL/CC              3.3822-04  5.1422-03  5.1420-03  5.1422-03  4.0875-04
+   GM/CC               9.7600-03     1.0555     1.0554     1.0555  1.6944-02
+ AVG MW                  28.8568   205.2589   205.2589   205.2589    41.4535
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 65      
+                                                                                
+                                 STREAM SECTION                                 
+
+ TOVAC TREATAIR VENT-2 VENT-3 VENT-4             
+ -----------------------------------
+
+ STREAM ID               TOVAC      TREATAIR   VENT-2     VENT-3     VENT-4  
+ FROM :                  FLASH-5    B1         B5         B7         FLASH-4 
+ TO   :                  DESORB     ----       ----       ----       ----    
+
+ SUBSTREAM: MIXED   
+ PHASE:                  LIQUID     VAPOR      MISSING    VAPOR      VAPOR  
+ COMPONENTS: KMOL/HR         
+   N2                  8.1153-02  4566.7753     0.0        7.0254     4.7046
+   O2                     0.1473  1206.0403     0.0        5.1908     4.3628
+   CO2                    0.9716     1.1486     0.0     1.2175-02  2.6587-02
+   H2O                    0.0        0.0        0.0        0.0        0.0   
+   SORBENT             1.0723+04     0.0        0.0     4.2474-14  9.5219-14
+   R23                    0.0        0.0        0.0        0.0        0.0   
+   R1150                  0.0        0.0        0.0        0.0        0.0   
+   R134A                  0.0        0.0        0.0        0.0        0.0   
+   R290                   0.0        0.0        0.0        0.0        0.0   
+ TOTAL FLOW:         
+   KMOL/HR             1.0724+04  5773.9643     0.0       12.2284     9.0939
+   KG/HR               2.2011+06  1.6657+05     0.0      363.4408   272.5650
+   L/MIN               3.4762+04  2.3543+06     0.0     4986.5454  3708.6303
+ STATE VARIABLES:    
+   TEMP   C              25.0575    25.0000    MISSING    25.0255    25.0464
+   PRES   BAR          5.0663-02     1.0133    MISSING     1.0133     1.0133
+   VFRAC                  0.0        1.0000    MISSING     1.0000     1.0000
+   LFRAC                  1.0000     0.0       MISSING     0.0        0.0   
+   SFRAC                  0.0        0.0       MISSING     0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL             5.7334+04   -18.6970    MISSING   -93.3990  -274.4631
+   CAL/GM               279.3484    -0.6481    MISSING    -3.1425    -9.1573
+   CAL/SEC             1.7079+08 -2.9988+04    MISSING  -317.2549  -693.3192
+ ENTROPY:            
+   CAL/MOL-K            787.3256     1.0215    MISSING     1.3696     1.4138
+   CAL/GM-K               3.8361  3.5408-02    MISSING  4.6081-02  4.7171-02
+ DENSITY:            
+   MOL/CC              5.1418-03  4.0875-05    MISSING  4.0871-05  4.0868-05
+   GM/CC                  1.0553  1.1792-03    MISSING  1.2147-03  1.2249-03
+ AVG MW                 205.2417    28.8491    MISSING    29.7211    29.9722
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 66      
+                                                                                
+                                 STREAM SECTION                                 
+
+ VENT-5 VENT-6                                   
+ -------------
+
+ STREAM ID               VENT-5     VENT-6  
+ FROM :                  COMP-5     V-2     
+ TO   :                  ----       ----    
+
+ SUBSTREAM: MIXED   
+ PHASE:                  VAPOR      VAPOR  
+ COMPONENTS: KMOL/HR         
+   N2                     1.9354  5.6394-02
+   O2                     2.4904  9.0225-02
+   CO2                    0.2214  1.9927-02
+   H2O                    0.0        0.0   
+   SORBENT             9.7568-13     0.0   
+   R23                    0.0        0.0   
+   R1150                  0.0        0.0   
+   R134A                  0.0        0.0   
+   R290                   0.0        0.0   
+ TOTAL FLOW:         
+   KMOL/HR                4.6472     0.1665
+   KG/HR                143.6513     5.3439
+   L/MIN               6877.6599    66.9984
+ STATE VARIABLES:    
+   TEMP   C             809.0011    21.0000
+   PRES   BAR             1.0133     1.0133
+   VFRAC                  1.0000     1.0000
+   LFRAC                  0.0        0.0   
+   SFRAC                  0.0        0.0   
+ ENTHALPY:           
+   CAL/MOL             1630.7614 -1.1275+04
+   CAL/GM                52.7563  -351.3819
+   CAL/SEC             2105.1417  -521.5972
+ ENTROPY:            
+   CAL/MOL-K             11.5564     1.8771
+   CAL/GM-K               0.3739  5.8501-02
+ DENSITY:            
+   MOL/CC              1.1262-05  4.1431-05
+   GM/CC               3.4811-04  1.3294-03
+ AVG MW                  30.9112    32.0865
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 67      
+                                                                                
+                                UTILITY SECTION                                 
+
+ UTILITY USAGE:  AIR       (GENERAL)     
+ -----------------------------------
+
+ AIR, INLET TEMP=30 C, OUTLET TEMP=20 C  
+  INPUT DATA:
+
+    INLET TEMPERATURE                   30.0000  C               
+    OUTLET TEMPERATURE                  20.0000  C               
+    HEAT TRANSFER COEFFICIENT         2.6512-03  CAL/SEC-SQCM-K  
+    HEATING VALUE                        2.3885  CAL/GM          
+    PRICE                                0.0     $/CAL           
+    INDEX TYPE                             FUEL
+
+  RESULT:
+
+    HEATING VALUE                        2.3885  CAL/GM          
+    INDEXED PRICE                        0.0     $/CAL           
+
+  THIS UTILITY IS PURCHASED
+
+  USAGE:
+
+  BLOCK ID  MODEL         DUTY              USAGE RATE        COST
+                          CAL/SEC           KG/HR             $/HR            
+  --------  ------------  ----------------  ----------------  ----------------
+  HX-15     HEATER                 41.8820           63.1266            0.0         
+                          ----------------  ----------------  ----------------
+                  TOTAL:           41.8820           63.1266            0.0         
+                          ================  ================  ================
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 68      
+                                                                                
+                                UTILITY SECTION                                 
+
+ UTILITY USAGE:  COOLH2O   (WATER)       
+ ---------------------------------
+
+ COOLING WATER, INLET TEMP=20 C, OUTLET TEMP=25 C
+  INPUT DATA:
+
+    INLET TEMPERATURE                   20.0000  C               
+    OUTLET TEMPERATURE                  25.0000  C               
+    INLET PRESSURE                       1.0133  BAR             
+    OUTLET PRESSURE                      1.0133  BAR             
+    HEAT TRANSFER COEFFICIENT         8.9567-02  CAL/SEC-SQCM-K  
+    PRICE                             1.5000-04  $/KG            
+    INDEX TYPE                             FUEL
+
+  RESULT:
+
+    COOLING VALUE                        4.9861  CAL/GM          
+    INDEXED PRICE                     1.5000-04  $/KG            
+
+  THIS UTILITY IS PURCHASED
+
+  USAGE:
+
+  BLOCK ID  MODEL         DUTY              USAGE RATE        COST
+                          CAL/SEC           KG/HR             $/HR            
+  --------  ------------  ----------------  ----------------  ----------------
+  HX-1      HEATER               1.7240+06         1.2447+06          186.7093      
+  HX-2      HEATER               9.7475+05         7.0378+05          105.5666      
+  HX-8      HEATER               1733.1120         1251.3218            0.1877      
+  HX-9      HEATER                307.8327          222.2579         3.3339-02      
+  HX-10     HEATER                185.3942          133.8562         2.0078-02      
+  HX-11     HEATER                105.6225           76.2603         1.1439-02      
+  HX-3      HEATER               6.9946+05         5.0502+05           75.7524      
+  HX-5      HEATER               1.7668+04         1.2756+04            1.9135      
+                          ----------------  ----------------  ----------------
+                  TOTAL:         3.4182+06         2.4680+06          370.1943      
+                          ================  ================  ================
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 69      
+                                                                                
+                                UTILITY SECTION                                 
+
+ UTILITY USAGE:  ELEC      (ELECTRICITY) 
+ ---------------------------------------
+
+ ELECTRICAL UTILITY  
+  INPUT DATA:
+
+    CO2 DATA SOURCE                         US-TITLE40-PART98               
+    CO2 FUEL SOURCE                         NATURAL_GAS                     
+    CO2 EMISSION TYPE                        SCOPE 2
+    CO2 EMISSION FACTOR               2.1055-07  KG/CAL          
+    THERMAL EFFICIENCY                   0.5800
+    CO2 ADJUSTMENT FACTOR                1.0000
+    PRICE                             3.4000-02  $/KWHR          
+    INDEX TYPE                             FUEL
+
+  RESULT:
+
+    INDEXED PRICE                     3.4000-02  $/KWHR          
+    CO2 EMISSION FACTOR               2.1055-07  KG/CAL          
+    TOTAL CO2 EMISSIONS               4910.5149  KG/HR           
+
+  THIS UTILITY IS PURCHASED
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 70      
+                                                                                
+                                UTILITY SECTION                                 
+
+ UTILITY USAGE:  ELEC      (ELECTRICITY) (CONTINUED) 
+  USAGE:
+
+  BLOCK ID  MODEL         DUTY              USAGE RATE        COST              CO2E EMISSIONS
+                          CAL/SEC           KW                $/HR              KG/HR           
+  --------  ------------  ----------------  ----------------  ----------------  ----------------
+  P-1       PUMP                 2.0954+05          877.3032           29.8283          273.8456
+  P-2       PUMP                 1.8598+04           77.8658            2.6474           24.3054
+  P-3       PUMP                   93.4569            0.3913         1.3304-02            0.1221
+  P-4       PUMP                    4.5929         1.9229-02         6.5380-04         6.0024-03
+  P-PROD    PUMP                   14.8115         6.2013-02         2.1084-03         1.9357-02
+  COMP-1    COMPR                1.7556+06         7350.3808          249.9129         2294.3833
+  COMP-2    COMPR                1.0261+06         4295.8732          146.0597         1340.9346
+  COMP-3    COMPR                7.3627+05         3082.6294          104.8094          962.2268
+  COMP-5    COMPR                8299.4416           34.7481            1.1814           10.8464
+  COMP-6    COMPR                1824.3284            7.6381            0.2597            2.3842
+  COMP-7    COMPR                 324.0345            1.3567         4.6127-02            0.4235
+  COMP-8    COMPR                 195.1518            0.8171         2.7780-02            0.2550
+  COMP-9    COMPR                 140.8300            0.5896         2.0047-02            0.1840
+  COMP-10   COMPR                 375.6394            1.5727         5.3473-02            0.4909
+  COMP-11   COMPR                  66.9572            0.2803         9.5314-03         8.7506-02
+                          ----------------  ----------------  ----------------  ----------------
+                  TOTAL:         3.7574+06         1.5732+04          534.8719         4910.5149
+                          ================  ================  ================  ================
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 71      
+                                                                                
+                                UTILITY SECTION                                 
+
+ UTILITY USAGE:  R1150     (REFRIGERANT) 
+ ---------------------------------------
+
+ R1150 -95C  
+  INPUT DATA:
+
+    INLET TEMPERATURE                  -95.0000  C               
+    OUTLET TEMPERATURE                 -95.0000  C               
+    INLET VAPOR FRACTION                 0.0   
+    OUTLET VAPOR FRACTION                1.0000
+    PRICE                             2.8680-07  $/CAL           
+    INDEX TYPE                             FUEL
+
+  RESULT:
+
+    COOLING VALUE                      111.6356  CAL/GM          
+    INDEXED PRICE                       MISSING  $/KG            
+
+  THIS UTILITY IS PURCHASED
+
+  THIS UTILITY IS NOT USED BY ANY COST OR UOS BLOCKS
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 72      
+                                                                                
+                                UTILITY SECTION                                 
+
+ UTILITY USAGE:  R134A     (REFRIGERANT) 
+ ---------------------------------------
+
+ R134A -20C  
+  INPUT DATA:
+
+    INLET TEMPERATURE                  -20.0000  C               
+    OUTLET TEMPERATURE                 -20.0000  C               
+    INLET VAPOR FRACTION                 0.0   
+    OUTLET VAPOR FRACTION                1.0000
+    PRICE                             6.4477-08  $/CAL           
+    INDEX TYPE                             FUEL
+
+  RESULT:
+
+    COOLING VALUE                       51.0873  CAL/GM          
+    INDEXED PRICE                     6.4477-08  $/CAL           
+
+  THIS UTILITY IS PURCHASED
+
+  USAGE:
+
+  BLOCK ID  MODEL         DUTY              USAGE RATE        COST
+                          CAL/SEC           KG/HR             $/HR            
+  --------  ------------  ----------------  ----------------  ----------------
+  HX-12     HEATER                888.2246           62.5911            0.2062      
+                          ----------------  ----------------  ----------------
+                  TOTAL:          888.2246           62.5911            0.2062      
+                          ================  ================  ================
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 73      
+                                                                                
+                                UTILITY SECTION                                 
+
+ UTILITY USAGE:  R23       (REFRIGERANT) 
+ ---------------------------------------
+
+ R23 -60C
+  INPUT DATA:
+
+    INLET TEMPERATURE                  -65.0000  C               
+    OUTLET TEMPERATURE                 -65.0000  C               
+    INLET VAPOR FRACTION                 0.0   
+    OUTLET VAPOR FRACTION                1.0000
+    PRICE                             1.5952-07  $/CAL           
+    INDEX TYPE                             FUEL
+
+  RESULT:
+
+    COOLING VALUE                       53.6476  CAL/GM          
+    INDEXED PRICE                     1.5952-07  $/CAL           
+
+  THIS UTILITY IS PURCHASED
+
+  USAGE:
+
+  BLOCK ID  MODEL         DUTY              USAGE RATE        COST
+                          CAL/SEC           KG/HR             $/HR            
+  --------  ------------  ----------------  ----------------  ----------------
+  HX-13     HEATER                 88.0787            5.9105         5.0580-02      
+  HX-14     HEATER                733.6562           49.2317            0.4213      
+                          ----------------  ----------------  ----------------
+                  TOTAL:          821.7349           55.1421            0.4719      
+                          ================  ================  ================
+
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 74      
+                                                                                
+                                UTILITY SECTION                                 
+
+ UTILITY USAGE:  R290      (REFRIGERANT) 
+ ---------------------------------------
+
+ R290 -35C   
+  INPUT DATA:
+
+    INLET TEMPERATURE                  -35.0000  C               
+    OUTLET TEMPERATURE                 -35.0000  C               
+    INLET VAPOR FRACTION                 0.0   
+    OUTLET VAPOR FRACTION                1.0000
+    PRICE                             9.2947-08  $/CAL           
+    INDEX TYPE                             FUEL
+
+  RESULT:
+
+    COOLING VALUE                       99.6921  CAL/GM          
+    INDEXED PRICE                       MISSING  $/KG            
+
+  THIS UTILITY IS PURCHASED
+
+  THIS UTILITY IS NOT USED BY ANY COST OR UOS BLOCKS
+ ASPEN PLUS   PLAT: WIN-X64   VER: 40.0                   08/15/2026  PAGE 75      
+                                                                                
+                             PROBLEM STATUS SECTION                             
+
+ BLOCK STATUS                            
+ ------------
+
+ ****************************************************************************
+ *                                                                          *
+ * Calculations were completed with warnings                                *
+ *                                                                          *
+ * The following Unit Operation blocks were                                 *
+ * completed with warnings:                                                 *
+ *   HX-5      HX-13     B5                                                 *
+ *                                                                          *
+ * All streams were flashed normally                                        *
+ *                                                                          *
+ * All Utility blocks were completed normally                               *
+ *                                                                          *
+ * All Convergence blocks were completed normally                           *
+ *                                                                          *
+ * All Calculator blocks were completed normally                            *
+ *                                                                          *
+ ****************************************************************************
