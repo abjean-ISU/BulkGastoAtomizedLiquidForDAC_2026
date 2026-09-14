@@ -9,7 +9,7 @@ authors:
    given-names: "Robert"
    orcid: "https://orcid.org/0000-0003-0847-9557"
 title: "Dataset and Code Files for Paper: Techno-economic and life cycle assessment of a bulk gas-to-atomized liquid approach for physisorptive direct air capture: performance characterization and research pathways"
-DOI:
+DOI: 10.5281/zenodo.22754533
 version: 1.0.0
 date-released: 2026-09-14
 url: "https://github.com/abjean-ISU/BulkGastoAtomizedLiquidForDAC_2026"
