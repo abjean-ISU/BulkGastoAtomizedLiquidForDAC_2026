@@ -1,0 +1,15 @@
+! BP86 def2-TZVPD
+
+%cosmors
+   solventfilename "n2"
+   dftfunc "BP86"
+end
+
+%pal
+   nprocs 1
+end
+
+* xyz 0 1
+N   0.000   0.000   0.000
+N   0.000   0.000   1.098
+*

@@ -1,0 +1,15 @@
+CE Plant Cost Index Report		
+2025		
+		
+CE INDEX	809.29	2025
+Equipment	1015.711	2025
+Heat Exchangers and Tanks	786.901	2025
+Process Machinery	1037.89	2025
+"Pipe, Valves and Fittings"	1388.865	2025
+Process Instruments	596.909	2025
+Pumps and Compressors	1640.995	2025
+Electrical Equipment	871.305	2025
+Structural Supports	1105.377	2025
+Construction Labor	384.944	2025
+Buildings	824.2	2025
+Engineering Supervision	314.345	2025
