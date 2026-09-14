@@ -1,12 +1,17 @@
 This repository contains the data and code relevent to the manuscript Techno-economic and life cycle assessment of a bulk gas-to-atomized liquid approach for physisorptive direct air capture: performance characterization and research pathways submitted to Energy and Environmental Science
-https://github.com/abjean-ISU/BulkGastoAtomizedLiquidForDAC_2026/blob/main/README.md
+
 Structure Folders:
-Droplet Tower Modeling Files Modeling files used to predict mass transfer and liquid holdup in the experimental apparatus. Running NDFApproach_dropletTowerModel_09242024PDF.m requires the use of the AllDropletData.csv available in Experimental Data, which is extracted from droplet images. ODE files are for each of the 4 analyzed kL models PD-gqmom_0_1.m was shared by Alberto Passalacqua and should be cited: Fox, R. O., Laurent, F., & Passalacqua, A. (2023). The generalized quadrature method of moments. Journal of Aerosol Science, 167, 106096. https://doi.org/10.1016/j.jaerosci.2022.106096
+Droplet Tower Modeling Files: Modeling files used to predict mass transfer and liquid holdup in BGAL contactors. User-input parameters such as density, Henry's constant, and diffusivity are sorbent/gas-dependent. PD-gqmom_0_1.m was shared by Alberto Passalacqua and should be cited: Fox, R. O., Laurent, F., & Passalacqua, A. (2023). The generalized quadrature method of moments. Journal of Aerosol Science, 167, 106096. https://doi.org/10.1016/j.jaerosci.2022.106096. Droplet towers were updated from 2026 paper submitted to AIChE Journal to process a flowing gas stream with changing composition instead of queicent gas phase.
 
-Experimental Data Data on mass transfer, liquid holdup, and droplet array characteristics. The mass transfer and liquid holdup data are raw, and the droplet data are available in 2 forms: Cleaned droplet data for each of the 24 locations in the droplet array where images were collected, and the composite file of all droplet data used to compute average array characteristics.
+IL_Aspen: contains Aspen plus .bkp file for IL system model used for MCDA and the partially optimized model. All stream results, model results, and .txt results for each process simulation are included.
 
-Image Processing Files Matlab files used to process droplet images and clean stacks of data to produce AllDropletData.csv
+LCA: contains OpenLCA results from project simulations, Inventory assessments generated from Aspen Plus results, OpenLCA JSON-LD files for custom processes and flows, and plotting .py files. 
 
-Model Results Droplet tower model results for 18 experimental trials
+MCDA Files: BGAL Settings.xlsx contains the setpoints used to define the Aspen Plus adsorption and desorption excel blocks for each process simulation. MCDA_SA.xlsx contains MCDA computations and process simulation results; python file used to generate MCDA figures. 
 
-DataProcessingCodeShare.R: code used to compute experimental reults shared in manuscript from both raw data and modeling results.
+ORCA files: contains inputs, outputs, and molecular structure files used to generate COSMOSAC property parameters for Aspen Plus. More information on ORCA can be found at: https://orcaforum.kofo.mpg.de/ and Neese, F.; "Software update: the ORCA program system, version 4.0" WIREs Comput Mol Sci 2017, e1327. doi: 10.1002/wcms.1327; also contains .py file used to process ORCA simulation outputs into Aspen Plus COSMOSAC property parameters format.
+
+TEA Files: contains TEA computation files used to compute CAPEX and OPEX for DAC systems; also contains results files for all SAs and .py files generated for figure generation
+
+Water_Aspen: contains Aspen plus .bkp file for water system model used for MCDA and the partially optimized model. All stream results, model results, and .txt results for each process simulation are included.
+
