@@ -104,7 +104,12 @@ for i in range(n_vars):
                     edgecolor='white', linewidth=0.5, zorder=3)
             ha  = 'left' if d_low > 0 else 'right'
             off = max(abs(d_low) * 0.05, 1.0) * (1 if d_low > 0 else -1)
-            ax.text(d_low + off, y, f'{d_low:+.1f}%',
+            xlab = d_low + off
+            # both ends on the same side: put the shorter bar's label on the other side of zero
+            if d_low * d_high > 0 and abs(d_low) < abs(d_high):
+                ha   = 'right' if d_low > 0 else 'left'
+                xlab = -1.0 if d_low > 0 else 1.0
+            ax.text(xlab, y, f'{d_low:+.1f}%',
                     va='center', ha=ha, fontsize=11, color='black')
 
         # High perturbation — hatched
@@ -114,7 +119,11 @@ for i in range(n_vars):
                     hatch='//', edgecolor='white', linewidth=0.5, zorder=4)
             ha  = 'left' if d_high > 0 else 'right'
             off = max(abs(d_high) * 0.05, 1.0) * (1 if d_high > 0 else -1)
-            ax.text(d_high + off, y, f'{d_high:+.1f}%',
+            xlab = d_high + off
+            if d_low * d_high > 0 and abs(d_high) < abs(d_low):
+                ha   = 'right' if d_high > 0 else 'left'
+                xlab = -1.0 if d_high > 0 else 1.0
+            ax.text(xlab, y, f'{d_high:+.1f}%',
                     va='center', ha=ha, fontsize=11, color='black')
 
 ax.axvline(0, color=BASELINE_COLOR, linewidth=1.5,

@@ -30,7 +30,7 @@ XLSX_PATH  = r'C:\Users\anbarron\Box\Research\Projects\DAC\Modeling\TEA\LCCCBrea
 OUTPUT_DIR = r'C:\Users\anbarron\Box\Research\Projects\DAC\Modeling\TEA'
 DPI        = 200
 
-BREAK_LOW  = 150    # top of lower panel ($/kg CO2)
+BREAK_LOW  = 225    # top of lower panel ($/kg CO2); must exceed water total (202)
 BREAK_HIGH = 3800   # bottom of upper panel ($/kg CO2)
 
 # ============================================================
@@ -345,7 +345,7 @@ fig2.legend(
     title_fontsize=12,
     fontsize=11,
     loc='lower center',
-    bbox_to_anchor=(0.5, -0.12),
+    bbox_to_anchor=(0.5, -0.22),   # lowered so it clears the x tick labels
     ncol=3,
     frameon=True,
     framealpha=0.95,

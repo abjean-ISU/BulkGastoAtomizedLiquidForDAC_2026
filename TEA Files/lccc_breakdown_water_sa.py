@@ -27,7 +27,7 @@ plt.rcParams.update({
 # ============================================================
 # USER SETTINGS
 # ============================================================
-XLSX_PATH  = r'C:\Users\anbarron\Box\Research\Projects\DAC\Modeling\TEA\LCCCBreakdown_WaterILSA.xlsx'
+XLSX_PATH  = r'C:\Users\anbarron\Box\Research\Projects\DAC\Modeling\TEA\LCCCBreakdown_WaterLHSA.xlsx'
 OUTPUT_DIR = r'C:\Users\anbarron\Box\Research\Projects\DAC\Modeling\TEA'
 DPI        = 200
 
@@ -56,6 +56,7 @@ def make_shades(base_hex, n):
 # LOAD & ORDER DATA
 # ============================================================
 df = pd.read_excel(XLSX_PATH, header=0, index_col=0)
+df = df[df.index.notna()]   # drop unlabeled total/fraction rows below the table
 df.columns = ['Water Baseline', 'Low LH', 'High LH']
 
 desired_order = [

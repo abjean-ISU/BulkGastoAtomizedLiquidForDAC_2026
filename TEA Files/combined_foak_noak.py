@@ -11,7 +11,7 @@ import matplotlib.patches as mpatches
 import numpy as np
 import os
 
-IL_XLSX    = r'NOAK_Assessment.xlsx'
+IL_XLSX    = r'NOAK_Assessment_IL.xlsx'
 WAT_XLSX   = r'NOAK_Assessment_Water.xlsx'
 OUTPUT_DIR = r'.'
 DPI        = 200
