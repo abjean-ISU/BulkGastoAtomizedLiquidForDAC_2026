@@ -143,7 +143,9 @@ xmax = max(
     (abs(df['High GWP'].fillna(df['Baseline GWP']) - df['Baseline GWP']) / df['Baseline GWP'].abs()).max(),
     (abs(df['Low GWP'] - df['Baseline GWP']) / df['Baseline GWP'].abs()).max()
 ) * 100 * 1.3
-ax.set_xlim(-100, xmax)
+# leave room left of the largest decrease for its % label
+xmin = (abs(df['Low GWP'] - df['Baseline GWP']) / df['Baseline GWP'].abs()).max() * 100 * 1.3
+ax.set_xlim(-max(100, xmin), xmax)
 ax.set_xlabel('% Change in GWP from Baseline', fontsize=10)
 
 ax.xaxis.grid(True, color='#CCCCCC', linestyle='--',
