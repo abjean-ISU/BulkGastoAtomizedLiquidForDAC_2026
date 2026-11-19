@@ -60,7 +60,7 @@ plt.rcParams.update({
 SA_DEFS = [
     {
         'key':   'absorption_pressure',
-        'title': 'Absorption Pressure',
+        'title': 'Absorption Pressure ',
         'x_label': 'Absorption Pressure (atm)',
         'discrete': False,
         'sheet1_scenarios_water': [
@@ -373,7 +373,7 @@ def make_tornado():
         low    = _clean_tick(ticks[0])
         base   = _clean_tick(ticks[bl_idx])
         high   = _clean_tick(ticks[-1])
-        sa_labels.append(f"{sa['x_label']}\n({low}, $\\mathbf{{{base}}}$, {high})")
+        sa_labels.append(f"{sa['title']}\n({low}, $\\mathbf{{{base}}}$, {high})")
     sa_scenarios = [
         ['3atmAbsorption','6atmAbsorption','Baseline','15atmAbsorption','20atmAbsorption'],
         ['0.005mpsVelocity','0.01mpsVelocity','0.025mpsVelocity','Baseline','0.1mpsVelocity','0.2mpsVelocity'],
@@ -395,7 +395,7 @@ def make_tornado():
 
     for ax, (col, xlabel) in zip(axes, metrics):
         for i, (scenarios, _) in enumerate(zip(sa_scenarios, sa_labels)):
-            w_sc = [s for s in scenarios if s != '-30CPurification']
+            w_sc = scenarios
             w_vals  = get_sheet1_rows(df1_water, w_sc)[col].values.astype(float)
             w_base  = get_sheet1_rows(df1_water, ['Baseline'])[col].values[0]
             w_min   = w_vals.min() - w_base
